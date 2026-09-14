@@ -1,0 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { articleUrl, dateLabel } from '../lib/content';
+interface Props { video: CollectionEntry<'videos'>; relatedSlug?: string; }
+const { video, relatedSlug } = Astro.props;
+---
+<article class="video-card"><a href={video.data.youtube_url} class="video-picture"><Image src={video.data.thumbnail} alt={video.data.thumbnail_alt} width={640} height={360} format="webp" loading="lazy"/><span class="play-icon" aria-hidden="true">▶</span><span class="sr-only">Watch {video.data.title} on YouTube</span></a><div class="meta"><span>{video.data.format === 'short' ? 'Short' : 'Video'}</span><time datetime={video.data.publication_date.toISOString()}>{dateLabel(video.data.publication_date)}</time></div><h3><a href={video.data.youtube_url}>{video.data.title}</a></h3><p>{video.data.description}</p>{relatedSlug && <a href={articleUrl(relatedSlug)}>Read the companion idea →</a>}</article>

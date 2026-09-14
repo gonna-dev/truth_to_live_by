@@ -1,0 +1,34 @@
+---
+import ArticleCard from './ArticleCard.astro';
+import { library } from '../lib/content';
+interface Props { pillar?: string; }
+const { pillar } = Astro.props;
+const { articles, pillars } = await library();
+const selected = pillar ? articles.filter((a) => a.data.pillar.id === pillar) : articles;
+---
+<div class="filters" aria-label="Browse by topic"><a class="filter" href="/ideas/" aria-current={!pillar ? 'page' : undefined}>All ideas</a>{pillars.map((p) => <a class="filter" href={`/ideas/topic/${p.id}/`} aria-current={pillar === p.id ? 'page' : undefined}>{p.data.title}</a>)}</div>
+<section data-idea-library aria-label="Ideas library">
+  <div class="search-row" data-search-controls hidden><div class="search-field"><label for="idea-search">Find an idea</label><input id="idea-search" type="search" placeholder="Search a topic, a question, a word…" autocomplete="off"/></div><p class="result-count" role="status" aria-live="polite" data-result-count>{selected.length} {selected.length === 1 ? 'idea' : 'ideas'}</p></div>
+  <div class="article-grid ideas-grid">{selected.map((article) => <div data-idea data-search={`${article.data.title} ${article.data.description} ${article.data.tags.join(' ')} ${pillars.find((p) => p.id === article.data.pillar.id)?.data.title} ${article.body}`.toLowerCase()}><ArticleCard article={article} pillar={pillars.find((p) => p.id === article.data.pillar.id)?.data.title ?? ''}/></div>)}</div>
+  <div class="empty-state" data-no-results hidden><h2>No ideas found, yet.</h2><p>Try another word, or clear your search to see every idea in this collection.</p><button class="button" data-clear-search>Clear search</button></div>
+  {selected.length === 0 && <div class="empty-state"><h2>Thoughtfully in progress.</h2><p>Our first essays in this collection are being prepared. Come back soon, or explore the channel.</p><a href="https://www.youtube.com/@TruthtoLiveBy" class="text-link">Visit YouTube ↗</a></div>}
+</section>
+<script>
+  const library = document.querySelector<HTMLElement>('[data-idea-library]');
+  if (library) {
+    const input = library.querySelector<HTMLInputElement>('input[type="search"]')!;
+    const cards = [...library.querySelectorAll<HTMLElement>('[data-idea]')];
+    const empty = library.querySelector<HTMLElement>('[data-no-results]')!;
+    const count = library.querySelector<HTMLElement>('[data-result-count]')!;
+    library.querySelector<HTMLElement>('[data-search-controls]')!.hidden = false;
+    const update = () => {
+      const words = input.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+      let found = 0;
+      for (const card of cards) { card.hidden = !words.every((word) => card.dataset.search!.includes(word)); if (!card.hidden) found++; }
+      count.textContent = `${found} ${found === 1 ? 'idea' : 'ideas'}${words.length ? ' found' : ''}`;
+      empty.hidden = found > 0 || cards.length === 0;
+    };
+    input.addEventListener('input', update);
+    library.querySelector('[data-clear-search]')?.addEventListener('click', () => { input.value = ''; update(); input.focus(); });
+  }
+</script>

@@ -1,0 +1,12 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { articleUrl, readingTime } from '../lib/content';
+interface Props { article: CollectionEntry<'articles'>; pillar: string; featured?: boolean; }
+const { article, pillar, featured = false } = Astro.props;
+const { data } = article;
+---
+<article class:list={['article-card', { 'featured-card': featured }]}>
+  <a class="card-image-link" href={articleUrl(data.slug)} tabindex="-1" aria-hidden="true"><Image src={data.hero_image} alt="" widths={[400, 700, 1000]} sizes={featured ? '(min-width: 800px) 55vw, 100vw' : '(min-width: 800px) 33vw, 100vw'} width={1000} height={750} format="webp" loading="lazy"/></a>
+  <div class="card-copy"><div class="meta"><span>{pillar}</span><span aria-hidden="true">/</span><span>{readingTime(article.body)} min read</span>{(data.draft || data.placeholder) && <span class="draft-label">Sample essay</span>}</div><h3><a href={articleUrl(data.slug)}>{data.title}</a></h3><p>{data.description}</p><a class="text-link" href={articleUrl(data.slug)} aria-label={`Read ${data.title}`}>Read the idea <span aria-hidden="true">↗</span></a></div>
+</article>

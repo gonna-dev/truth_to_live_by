@@ -9,6 +9,7 @@ export async function library() {
     getCollection('articles'), getCollection('videos'), getCollection('pillars'),
   ]);
   const errors = validateRelations(allArticles, allVideos, pillars);
+  for (const article of allArticles) if (!article.body?.trim()) errors.push(`${article.id}: article body is empty`);
   if (errors.length) throw new Error(errors.join('\n'));
   return {
     articles: visibleEntries(allArticles, previewMode) as typeof allArticles,

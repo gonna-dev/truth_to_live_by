@@ -17,7 +17,8 @@
     "test:browser": "playwright test",
     "validate": "npm run check && npm test && npm run build && npm run test:site",
     "release:check": "node scripts/release-check.mjs",
-    "build:release": "npm run validate && npm run release:check"
+    "build:release": "npm run validate && npm run release:check",
+    "build:cloudflare": "node scripts/cloudflare-build.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
@@ -30,7 +31,10 @@
     "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.63.0",
     "cheerio": "^1.2.0",
+    "chrome-launcher": "^1.2.1",
     "lighthouse": "^13.4.1",
-    "typescript": "^6.0.3"
+    "sharp": "^0.35.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.0"
   }
 }
