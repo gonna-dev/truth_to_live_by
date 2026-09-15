@@ -8,26 +8,82 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { brand } from '../config/brand';
 import { indexable, previewMode, jsonLd } from '../lib/content';
-interface Props { title?: string; description?: string; image?: string; imageAlt?: string; article?: boolean; schema?: unknown; noindex?: boolean; }
-const { title, description = brand.description, image = '/social/brand.png', imageAlt = 'Truth to Live By. Ideas worth understanding. Truths worth living.', article = false, schema, noindex = false } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  article?: boolean;
+  schema?: unknown;
+  noindex?: boolean;
+}
+const {
+  title,
+  description = brand.description,
+  image = '/social/brand.png',
+  imageAlt = 'Truth to Live By. Ideas worth understanding. Truths worth living.',
+  article = false,
+  schema,
+  noindex = false,
+} = Astro.props;
 const fullTitle = title ? `${title} — ${brand.name}` : `${brand.name} — Ideas worth understanding`;
-const canonical = new URL(Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname, brand.url).href;
+const canonical = new URL(
+  Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname,
+  brand.url,
+).href;
 const imageUrl = new URL(image, brand.url).href;
 ---
+
 <!doctype html>
 <html lang="en-IE">
   <head>
-    <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>{fullTitle}</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/>
-    <meta name="robots" content={indexable && !noindex ? 'index, follow' : 'noindex, nofollow'}/>
-    <meta name="theme-color" content="#F6F3EB"/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <meta property="og:site_name" content={brand.name}/><meta property="og:title" content={fullTitle}/><meta property="og:description" content={description}/><meta property="og:type" content={article ? 'article' : 'website'}/><meta property="og:url" content={canonical}/><meta property="og:locale" content="en_IE"/><meta property="og:image" content={imageUrl}/><meta property="og:image:alt" content={imageAlt}/>
-    <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={fullTitle}/><meta name="twitter:description" content={description}/><meta name="twitter:image" content={imageUrl}/><meta name="twitter:image:alt" content={imageAlt}/>
-    <script is:inline type="application/ld+json" set:html={jsonLd(schema ?? { '@context': 'https://schema.org', '@type': 'Organization', name: brand.name, url: brand.url, sameAs: [brand.youtube, brand.instagram] })}/>
-    <slot name="head"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={indexable && !noindex ? 'index, follow' : 'noindex, nofollow'} />
+    <meta name="theme-color" content="#F6F3EB" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:site_name" content={brand.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_IE" />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={jsonLd(
+        schema ?? {
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: brand.name,
+          url: brand.url,
+          sameAs: [brand.youtube, brand.instagram],
+        },
+      )}
+    ></script>
+    <slot name="head" />
   </head>
   <body>
-    {previewMode && <aside class="preview-strip" aria-label="Preview notice">PRIVATE PREVIEW <span>·</span> Sample essays await editorial approval. Newsletter signup is not active.</aside>}
-    <Header/><main id="main" tabindex="-1"><slot/></main><Footer/>
+    {previewMode && (
+      <aside class="preview-strip" aria-label="Preview notice">
+        LOCAL PREVIEW <span>·</span> Sample essays await editorial approval. Email signup opens on
+        beehiiv.
+      </aside>
+    )}
+    <Header />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

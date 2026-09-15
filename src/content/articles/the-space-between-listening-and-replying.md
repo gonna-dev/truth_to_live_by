@@ -13,6 +13,7 @@ takeaway: In your next everyday conversation, check what the other person means 
 evidence_note: An editorial reflection on ordinary conversation, not a clinical relationship intervention or a claim about research. Final editorial approval is pending.
 related_articles: [what-deserves-your-attention]
 ---
+
 Someone tells you about a difficult day. Before they have finished, an answer arrives in your mind: a solution, a similar experience, a reason things might not be so bad.
 
 The impulse may come from care. You want to make the difficulty smaller. Yet the answer and the conversation are not always asking for the same thing.

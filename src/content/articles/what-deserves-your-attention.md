@@ -15,6 +15,7 @@ takeaway: Before asking how to fit more into your day, choose one thing that des
 evidence_note: This sample essay offers an editorial reflection and an optional personal exercise. It makes no claim that the exercise has been scientifically tested. Final editorial approval is pending.
 related_articles: [a-small-promise-you-can-keep, the-space-between-listening-and-replying]
 ---
+
 There is a familiar way to arrive at the end of a day: you have answered messages, finished small tasks and moved between a surprising number of screens. You have been occupied. Yet you are not quite sure what the day was for.
 
 This is not a verdict on your character. Some days are necessarily given to administration, care or simply getting through. But when there is room to choose, it can be useful to ask a question that comes before productivity: **what deserves my attention?**

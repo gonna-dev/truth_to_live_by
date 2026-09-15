@@ -13,6 +13,7 @@ takeaway: Choose a promise that fits the day you are likely to have. Make it spe
 evidence_note: This sample is a practical editorial exercise, not a research-backed habit protocol or a health recommendation. Final editorial approval is pending.
 related_articles: [what-deserves-your-attention, not-every-question-needs-an-answer-today]
 ---
+
 A good intention often arrives with an ideal version of the week attached. In that week, there is enough time, nobody interrupts and you feel much as you do at the moment of making the plan.
 
 Then an ordinary week arrives instead.

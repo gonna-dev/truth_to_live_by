@@ -3,7 +3,28 @@ import Base from '../../../layouts/Base.astro';
 import IdeasLibrary from '../../../components/IdeasLibrary.astro';
 import Newsletter from '../../../components/Newsletter.astro';
 import { library } from '../../../lib/content';
-export async function getStaticPaths() { const { pillars } = await library(); return pillars.map((pillar) => ({ params: { pillar: pillar.id }, props: { pillar } })); }
+export async function getStaticPaths() {
+  const { pillars } = await library();
+  return pillars.map((pillar) => ({ params: { pillar: pillar.id }, props: { pillar } }));
+}
 const { pillar } = Astro.props;
 ---
-<Base title={pillar.data.title} description={pillar.data.description}><div class="wrap"><header class="page-intro"><span class="eyebrow"><a href="/ideas/">IDEAS</a> / {pillar.data.label}</span><h1>{pillar.data.title}<em>.</em></h1><p class="lede">{pillar.data.description}</p></header><div class="content-section"><IdeasLibrary pillar={pillar.id}/></div><Newsletter/></div></Base>
+
+<Base title={pillar.data.title} description={pillar.data.description}>
+  <div class="wrap">
+    <header class="page-intro">
+      <span class="eyebrow">
+        <a href="/ideas/">IDEAS</a> / {pillar.data.label}
+      </span>
+      <h1>
+        {pillar.data.title}
+        <em>.</em>
+      </h1>
+      <p class="lede">{pillar.data.description}</p>
+    </header>
+    <div class="content-section">
+      <IdeasLibrary pillar={pillar.id} />
+    </div>
+    <Newsletter />
+  </div>
+</Base>

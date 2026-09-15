@@ -1,7 +1,41 @@
 ---
 import { brand } from '../config/brand';
 ---
+
 <footer class="site-footer wrap">
-  <div class="footer-top"><div><a href="/" class="wordmark">Truth to Live By<span class="wordmark-dot">.</span></a><p>A little more understanding.<br/>A more considered life.</p></div><nav aria-label="Footer navigation"><a href="/ideas/">Explore Ideas</a><a href="/about/">Our approach</a><a href="/contact/">Contact</a></nav><nav aria-label="Social channels"><a href={brand.youtube}>YouTube <span aria-hidden="true">↗</span></a><a href={brand.instagram}>Instagram <span aria-hidden="true">↗</span></a><a href="/join/">One Truth to Live By</a></nav></div>
-  <div class="footer-bottom"><span>© {new Date().getFullYear()} {brand.name}</span><span>Made for a more thoughtful everyday.</span><nav aria-label="Legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav></div>
+  <div class="footer-top">
+    <div>
+      <a href="/" class="wordmark">
+        Truth to Live By<span class="wordmark-dot">.</span>
+      </a>
+      <p>
+        A little more understanding.
+        <br />A more considered life.
+      </p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="/ideas/">Explore Ideas</a>
+      <a href="/about/">Our approach</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <nav aria-label="Social channels">
+      <a href={brand.youtube}>
+        YouTube <span aria-hidden="true">↗</span>
+      </a>
+      <a href={brand.instagram}>
+        Instagram <span aria-hidden="true">↗</span>
+      </a>
+      <a href="/join/">One Truth to Live By</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>
+      © {new Date().getFullYear()} {brand.name}
+    </span>
+    <span>Made for a more thoughtful everyday.</span>
+    <nav aria-label="Legal">
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </nav>
+  </div>
 </footer>

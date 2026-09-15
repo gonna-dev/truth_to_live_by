@@ -33,31 +33,31 @@ Astro supports schema-validated content collections and static routes ([Astro do
 
 ## Sitemap and page behavior
 
-| Route | Purpose |
-| --- | --- |
-| `/` | Positioning, primary Join CTA, Explore Ideas, featured idea, latest articles, three pillars, selected video, newsletter |
-| `/ideas/` | All published ideas, pillar filters and small local search over titles, descriptions, tags and body |
-| `/ideas/[slug]/` | Article, dates, author, reading time, takeaway, evidence notes, references, corrections, related ideas/video, signup |
-| `/ideas/topic/[pillar]/` | Shareable pillar archive; generated from pillar data |
-| `/watch/` | Verified long-form videos and Shorts, with related articles |
-| `/about/` | Brand purpose, editorial method, evidence approach and synthetic-presenter transparency |
-| `/join/` | Newsletter proposition, consent/privacy link and beehiiv form |
-| `/contact/` | Editorial, corrections, collaboration and commercial enquiry route |
-| `/privacy/` | Actual controller/contact, purposes, processors, retention and rights information, reviewed before collection |
-| `/terms/` | Concise site-use and editorial terms; no invented company details |
-| `/404.html` | Branded recovery page; return an actual 404 response |
-| `/sitemap-index.xml`, `/robots.txt` | Production discovery; preview environments excluded from indexing |
+| Route                               | Purpose                                                                                                                 |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `/`                                 | Positioning, primary Join CTA, Explore Ideas, featured idea, latest articles, three pillars, selected video, newsletter |
+| `/ideas/`                           | All published ideas, pillar filters and small local search over titles, descriptions, tags and body                     |
+| `/ideas/[slug]/`                    | Article, dates, author, reading time, takeaway, evidence notes, references, corrections, related ideas/video, signup    |
+| `/ideas/topic/[pillar]/`            | Shareable pillar archive; generated from pillar data                                                                    |
+| `/watch/`                           | Verified long-form videos and Shorts, with related articles                                                             |
+| `/about/`                           | Brand purpose, editorial method, evidence approach and synthetic-presenter transparency                                 |
+| `/join/`                            | Newsletter proposition, consent/privacy link and beehiiv form                                                           |
+| `/contact/`                         | Editorial, corrections, collaboration and commercial enquiry route                                                      |
+| `/privacy/`                         | Actual controller/contact, purposes, processors, retention and rights information, reviewed before collection           |
+| `/terms/`                           | Concise site-use and editorial terms; no invented company details                                                       |
+| `/404.html`                         | Branded recovery page; return an actual 404 response                                                                    |
+| `/sitemap-index.xml`, `/robots.txt` | Production discovery; preview environments excluded from indexing                                                       |
 
 Header: Home, Ideas, Watch, About, Join. Footer: Contact, Privacy, Terms, YouTube, Instagram. Mobile: brand, visible Join action and accessible menu. No important action requires hover.
 
 ## Content model
 
-| Collection | Required data | Optional or derived data |
-| --- | --- | --- |
-| Article | title, slug, description, author, publication_date, pillar reference, tags, draft, placeholder, Markdown body | subtitle, updated_date, hero_image/alt, related_video, featured, seo_title/description/image, sources, takeaway, evidence_note, correction_note, related_articles; reading time derived |
-| Video | title, slug, description, publication_date, pillar reference, verified youtube_url, format (video/short), thumbnail and alt, draft, placeholder | related_article, duration when verified |
-| Pillar | id, title, description, display_order | accent token |
-| Source within article | title, URL, evidence classification | author, publisher, publication date, locator, explanatory note |
+| Collection            | Required data                                                                                                                                   | Optional or derived data                                                                                                                                                                |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Article               | title, slug, description, author, publication_date, pillar reference, tags, draft, placeholder, Markdown body                                   | subtitle, updated_date, hero_image/alt, related_video, featured, seo_title/description/image, sources, takeaway, evidence_note, correction_note, related_articles; reading time derived |
+| Video                 | title, slug, description, publication_date, pillar reference, verified youtube_url, format (video/short), thumbnail and alt, draft, placeholder | related_article, duration when verified                                                                                                                                                 |
+| Pillar                | id, title, description, display_order                                                                                                           | accent token                                                                                                                                                                            |
+| Source within article | title, URL, evidence classification                                                                                                             | author, publisher, publication date, locator, explanatory note                                                                                                                          |
 
 Use explicit references rather than duplicate URLs for article/video relationships. Classifications can distinguish established evidence, emerging evidence, interpretation, opinion and hypothesis; they are editorial assessments, never automatically inferred proof. Markdown supplies headings, quotes, lists and citations; reusable blocks supply callouts and the practical takeaway.
 
@@ -67,18 +67,18 @@ Validation must reject duplicate slugs, invalid references/URLs, missing require
 
 Use a quiet masthead, fine divider lines and a large serif headline: **Ideas worth understanding. Truths worth living.** Supporting text remains simple and practical. Olive Join buttons make the newsletter the strongest action; Explore Ideas remains a visible secondary action, with YouTube nearby.
 
-| Token | Proposal |
-| --- | --- |
-| Background | Warm paper `#F6F3EB` |
-| Text | Charcoal `#272923` |
-| Accent | Deep olive `#4B583F` |
-| Secondary surface | Pale oat `#E9E4D8` |
-| Decorative rule | `#D5CFC0` (not a form-control boundary) |
+| Token              | Proposal                                                   |
+| ------------------ | ---------------------------------------------------------- |
+| Background         | Warm paper `#F6F3EB`                                       |
+| Text               | Charcoal `#272923`                                         |
+| Accent             | Deep olive `#4B583F`                                       |
+| Secondary surface  | Pale oat `#E9E4D8`                                         |
+| Decorative rule    | `#D5CFC0` (not a form-control boundary)                    |
 | Display typography | Literary serif, self-hosted and licensed; Georgia fallback |
-| Body typography | Clear sans serif, system fallback; 18px reading text |
-| Reading measure | Approximately 65 characters |
-| Layout | Up to 1180px; generous spacing; one column on mobile |
-| Controls | At least 44px target height, strong visible keyboard focus |
+| Body typography    | Clear sans serif, system fallback; 18px reading text       |
+| Reading measure    | Approximately 65 characters                                |
+| Layout             | Up to 1180px; generous spacing; one column on mobile       |
+| Controls           | At least 44px target height, strong visible keyboard focus |
 
 Below the hero: one larger featured idea, then a quieter latest-ideas list, pillar links, a selected-video section and a full-width newsletter invitation. Article pages use a narrower reading column. Images should evoke books, timber and natural light when appropriate and available, with confirmed rights. The concept uses labeled image space instead of invented brand photography. Article headings in the concept are illustrative, not claims about existing channel content.
 
@@ -98,18 +98,18 @@ Propose Cloudflare Pages Git integration with `main` as production branch. Inclu
 
 Use a successful previous deployment as the rollback target and document a corresponding Git revert to preserve source/deployment consistency. Test the actual rollback procedure during approved deployment work. Failed validations must block publishing new output.
 
-| Area | Planned evidence |
-| --- | --- |
-| Build/content | Clean install, schema/type checks, production build, draft leakage and invalid-reference checks |
-| Links/navigation | Crawl generated internal links/assets and anchors; test menu, search/filter, empty results, pillar and related-content links |
-| Forms | Keyboard labels, invalid email, pending, confirmed success, provider failure, retry, duplicate subscriber and configured double opt-in; no false success |
-| Responsive | 360/390px mobile, tablet and desktop; no horizontal overflow; touch targets and reduced-motion behavior |
-| Accessibility | Automated axe checks plus manual keyboard/focus, headings, contrast and form feedback review; WCAG 2.2 AA target |
-| SEO | Titles/descriptions, canonical URLs, social images, Article/brand/breadcrumb and eligible VideoObject data, sitemap, robots and true 404 |
-| Performance | Mobile Lighthouse targets: performance 90+, accessibility/best practices/SEO 95+; check representative home/article/Join pages |
-| Web vitals | Aim for LCP <2.5s, CLS <0.1 and good INP; distinguish lab checks from field results available after real traffic |
-| Security | Secret/dependency scan, HTTPS/security headers, external-link safety and provider input handling; no secrets in client output |
-| Release | Approved hostname, live signup test, privacy completeness, launch content counts, preview indexing/access and rollback |
+| Area             | Planned evidence                                                                                                                                         |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Build/content    | Clean install, schema/type checks, production build, draft leakage and invalid-reference checks                                                          |
+| Links/navigation | Crawl generated internal links/assets and anchors; test menu, search/filter, empty results, pillar and related-content links                             |
+| Forms            | Keyboard labels, invalid email, pending, confirmed success, provider failure, retry, duplicate subscriber and configured double opt-in; no false success |
+| Responsive       | 360/390px mobile, tablet and desktop; no horizontal overflow; touch targets and reduced-motion behavior                                                  |
+| Accessibility    | Automated axe checks plus manual keyboard/focus, headings, contrast and form feedback review; WCAG 2.2 AA target                                         |
+| SEO              | Titles/descriptions, canonical URLs, social images, Article/brand/breadcrumb and eligible VideoObject data, sitemap, robots and true 404                 |
+| Performance      | Mobile Lighthouse targets: performance 90+, accessibility/best practices/SEO 95+; check representative home/article/Join pages                           |
+| Web vitals       | Aim for LCP <2.5s, CLS <0.1 and good INP; distinguish lab checks from field results available after real traffic                                         |
+| Security         | Secret/dependency scan, HTTPS/security headers, external-link safety and provider input handling; no secrets in client output                            |
+| Release          | Approved hostname, live signup test, privacy completeness, launch content counts, preview indexing/access and rollback                                   |
 
 ## Assumptions and owner decisions
 

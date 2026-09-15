@@ -1,0 +1,18 @@
+# Changelog
+
+## 0.1.1 — local preview continued, 15 September 2026
+
+- Replaced the previous beehiiv address with the verified One Truth to Live By newsletter URL and added a working external newsletter link.
+- Added the channel's verified 53-second Stoic Wisdom Short, local thumbnail, homepage promotion and VideoObject metadata.
+- Corrected article-link accessible names and formatted the source for ongoing maintenance.
+- Kept on-site collection and public deployment gated pending the required inputs and approvals.
+
+## 0.1.0 — local preview, 14 September 2026
+
+- Built the approved warm editorial design with responsive navigation and local typography.
+- Added Home, Ideas/search, pillar archives, article templates, Watch, About, Join, Contact, Privacy/Terms drafts and branded 404.
+- Added four labeled editorial sample essays and three original illustrations, with responsive image output and social metadata.
+- Added validated Markdown/JSON content architecture, draft/date filtering, evidence/reference/correction fields and related content.
+- Added reusable gated beehiiv signup integration and contact configuration; collection remains inactive pending real inputs and privacy review.
+- Added automated unit, generated-site and desktop/mobile accessibility/interaction checks, GitHub quality workflow and release readiness gate.
+- Preserved the supplied GitHub main history in a local feature branch. No public release or domain changes.

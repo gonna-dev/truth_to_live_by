@@ -7,7 +7,9 @@ export default defineConfig({
   // Rasterize only the reviewed, repository-owned SVG illustrations in src/assets.
   image: { dangerouslyProcessSVG: true },
   trailingSlash: 'always',
-  integrations: [sitemap({ filter: (page) => !page.endsWith('/404/') && !page.endsWith('/404.html') })],
+  integrations: [
+    sitemap({ filter: (page) => !page.endsWith('/404/') && !page.endsWith('/404.html') }),
+  ],
   devToolbar: { enabled: false },
   vite: { build: { assetsInlineLimit: 0 } },
 });

@@ -13,6 +13,7 @@ takeaway: Ask what needs a decision now, what information is missing, and what c
 evidence_note: This sample essay is an editorial reflection on everyday uncertainty. It is not psychological treatment or professional decision-making advice. Final editorial approval is pending.
 related_articles: [what-deserves-your-attention, a-small-promise-you-can-keep]
 ---
+
 Some questions arrive with a deadline. Others acquire one because we are uncomfortable leaving them open.
 
 What should I do next? Is this the right direction? What does that conversation mean? A question may deserve care without requiring a final answer before the day ends.

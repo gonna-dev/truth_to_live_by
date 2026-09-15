@@ -1,0 +1,10 @@
+node_modules
+dist
+.astro
+.git
+artifacts
+artifacts-*.html
+playwright-report
+test-results
+USER-REQUIREMENTS.txt
+package-lock.json

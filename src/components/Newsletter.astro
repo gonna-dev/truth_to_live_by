@@ -2,14 +2,84 @@
 import { brand } from '../config/brand';
 import { newsletterConfig } from '../lib/integrations.mjs';
 import { previewMode } from '../lib/content';
-interface Props { compact?: boolean; }
+interface Props {
+  compact?: boolean;
+}
 const { compact = false } = Astro.props;
-const config = newsletterConfig(import.meta.env);
+const config = newsletterConfig({
+  ...import.meta.env,
+  PUBLIC_BEEHIIV_SIGNUP_URL: import.meta.env.PUBLIC_BEEHIIV_SIGNUP_URL || brand.newsletterUrl,
+});
 const enabled = config.enabled && !previewMode;
 ---
-<section class:list={['newsletter', { 'newsletter-compact': compact }]} aria-label="One Truth to Live By newsletter">
-  <div class="newsletter-copy"><span class="eyebrow">A LETTER WORTH OPENING</span><h2>One Truth<br/><em>to Live By.</em></h2><p>{brand.newsletterDescription}</p><p class="small">A little perspective for the life you’re already living.</p></div>
+
+<section
+  class:list={['newsletter', { 'newsletter-compact': compact }]}
+  aria-label="One Truth to Live By newsletter"
+>
+  <div class="newsletter-copy">
+    <span class="eyebrow">A LETTER WORTH OPENING</span>
+    <h2>
+      One Truth
+      <br />
+      <em>to Live By.</em>
+    </h2>
+    <p>{brand.newsletterDescription}</p>
+    <p class="small">A little perspective for the life you’re already living.</p>
+  </div>
   <div class="newsletter-action">
-    {enabled ? <><p>Join the newsletter. You can unsubscribe at any time. Read our <a href="/privacy/">Privacy Notice</a> before subscribing.</p><iframe class="signup-frame" src={config.embed} title="Subscribe to One Truth to Live By with beehiiv" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe><p class="small">If the form does not load, <a href={config.signup}>open the secure signup page ↗</a>. Subscription confirmations are sent by beehiiv.</p></> : <><div class="letter-mark" aria-hidden="true"><svg width="46" height="36" viewBox="0 0 46 36" fill="none"><rect x="1" y="1" width="44" height="34" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m2 3 21 17L44 3M2 34l15-14m27 14L29 20" stroke="currentColor" stroke-width="1.5"/></svg></div><h3>The first letter is taking shape.</h3><p>Signup will open here soon. In the meantime, find an idea worth taking with you.</p><a class="button button-light" href="/ideas/">Explore the ideas <span aria-hidden="true">→</span></a><p class="small">No email addresses are collected on this preview.</p></>}
+    {enabled ? (
+      <>
+        <p>
+          Join the newsletter. You can unsubscribe at any time. Read our{' '}
+          <a href="/privacy/">Privacy Notice</a> before subscribing.
+        </p>
+        <iframe
+          class="signup-frame"
+          src={config.embed}
+          title="Subscribe to One Truth to Live By with beehiiv"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+        ></iframe>
+        <p class="small">
+          If the form does not load, <a href={config.signup}>open the secure signup page ↗</a>.
+          Subscription confirmations are sent by beehiiv.
+        </p>
+      </>
+    ) : (
+      <>
+        <div class="letter-mark" aria-hidden="true">
+          <svg width="46" height="36" viewBox="0 0 46 36" fill="none">
+            <rect
+              x="1"
+              y="1"
+              width="44"
+              height="34"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="m2 3 21 17L44 3M2 34l15-14m27 14L29 20"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
+        <h3>A little perspective, delivered.</h3>
+        <p>
+          Our newsletter has a home on beehiiv. Visit the publication to learn more and join the
+          list.
+        </p>
+        <a class="button button-light" href={config.signup || brand.newsletterUrl}>
+          Visit the newsletter <span aria-hidden="true">↗</span>
+        </a>
+        <p class="small">
+          Opens beehiiv, where its privacy information applies. This website preview does not
+          collect email addresses.
+        </p>
+      </>
+    )}
   </div>
 </section>
