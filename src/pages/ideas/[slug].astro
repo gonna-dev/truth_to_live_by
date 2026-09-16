@@ -4,6 +4,7 @@ import { Image, getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import VideoPlayer from '../../components/VideoPlayer.astro';
 import { library, articleUrl, readingTime, dateLabel } from '../../lib/content';
 import { brand } from '../../config/brand';
 export async function getStaticPaths() {
@@ -156,7 +157,7 @@ const schema = {
       {video && (
         <aside class="takeaway">
           <h2>Explore the idea on screen</h2>
-          <a href={video.data.youtube_url}>Watch {video.data.title} ↗</a>
+          <VideoPlayer video={video} />
         </aside>
       )}
       <div class="article-actions">

@@ -1,5 +1,12 @@
 # Changelog
 
+## 16 September 2026 — On-site video playback
+
+- Added a reusable click-to-play YouTube privacy-enhanced player to home, Watch and article-related videos.
+- Preserved local posters and zero provider requests before Play, with 9:16 Shorts and 16:9 long-form presentation from the existing content model.
+- Added keyboard activation, close/focus restoration, external fallback and related Ideas/newsletter CTAs.
+- Updated the exact CSP frame allowlist, privacy copy, browser security tests and mobile performance audits.
+
 ## 0.1.1 — local preview continued, 15 September 2026
 
 - Replaced the previous beehiiv address with the verified One Truth to Live By newsletter URL and added a working external newsletter link.

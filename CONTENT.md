@@ -54,6 +54,8 @@ Add one JSON object per file under `src/content/videos/`. The first verified ent
 
 Required properties: `title`, `slug`, `description`, `publication_date`, `pillar`, `format` (`video` or `short`), `youtube_url` (a specific watch/Short URL), `thumbnail` (relative local image path), `thumbnail_alt`, `draft`, `placeholder`, `verified`. Optional: `duration` in ISO 8601 format such as PT5M30S and `related_article` collection ID.
 
+The existing `format` field also determines the on-site player shape: `short` is 9:16, `video` is 16:9. Keep the ordinary YouTube URL; the player derives its privacy-enhanced embed URL automatically. Local thumbnails appear before Play, and YouTube loads only after activation. Related-article links are resolved from the filtered library; otherwise the video links to its pillar. No embed HTML or extra content fields are needed.
+
 Obtain the exact title, actual date, URL and thumbnail from the owner's channel. Confirm image rights. Set `verified: true` only after checking that URL and its metadata. Use `draft: false` / `placeholder: false` when publication is approved. Adding an entry automatically makes it available to the Watch collection. Set an article's `related_video` to the video filename ID for a companion link.
 
 ## Pillars and images

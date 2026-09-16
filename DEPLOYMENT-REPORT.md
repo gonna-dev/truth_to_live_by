@@ -1,12 +1,26 @@
 # Deployment report
 
-Updated 15 September 2026. Status: local review preview; not approved for publication.
+Updated 16 September 2026. Status: local review preview; not approved for publication.
+
+## 16 September — user-requested on-site video playback
+
+Implemented a reusable lazy YouTube player on the homepage, Watch cards and article-related video sections. No video content fields were changed. Local thumbnails and a native Play button precede a user-triggered `www.youtube-nocookie.com` iframe. Shorts use 9:16 and long-form uses 16:9. No YouTube request or connection hint is made before activation. The bundled player script is approximately 1.8 kB uncompressed, with no new dependency or YouTube SDK.
+
+Close removes the iframe and returns focus to Play; keyboard users can enter and leave native player controls. Starting a second player removes the first. Related Ideas (companion article if published, otherwise the pillar), newsletter and explicit Watch on YouTube links remain beneath each player. Browser restrictions can require a second Play inside the iframe. A persistent fallback and Close/reopen route remain available when the provider fails. Escape closes the player while focus is in the host component; YouTube controls its own iframe keyboard events.
+
+Live verification: the connected browser displayed the actual Short playing within the homepage, with its seek control progressing and a Mute control. Closing restored focus to Play. The first provider attempt stayed blank; reopening loaded successfully. Direct standalone embed navigation reports YouTube error 153 without an embedding referrer, as expected; the site iframe explicitly uses `strict-origin-when-cross-origin`.
+
+Final validation: production and preview builds plus static checks passed (12/16 pages), 0 type errors/warnings/hints, 9 unit tests and all 42 desktop/mobile browser tests passed. New tests cover zero external requests before Play, keyboard activation and frame focus, portrait/landscape geometry, recovery after provider failure, no-JavaScript fallback, retained CTAs and actual CSP rejection of an unapproved frame origin. Deterministic iframe tests use a local response substitute; the real provider was separately checked above. Long-form geometry was tested using the component's landscape presentation, without inventing a published video. Player screenshots under `artifacts/` and live playback were inspected.
+
+CSP adds only `https://www.youtube-nocookie.com` to `frame-src`; host scripts and connections remain self-only. Privacy copy now explains the explicit YouTube connection and that privacy-enhanced playback is not anonymous. Implementation references: [YouTube player parameters](https://developers.google.com/youtube/player_parameters) and [YouTube embedding guidance](https://support.google.com/youtube/answer/171780).
+
+Final mobile Lighthouse rerun: homepage and Watch performance 97, accessibility 100 and best practices 100. Home LCP 2.18 s / CLS 0; Watch LCP 2.11 s / CLS 0.0014. Article and Join were also audited (Join performance 99); all accessibility/best-practices scores remain 100. The Play label mismatch identified in the first audit was corrected and no longer appears. Preview SEO remains limited by intentional noindex. These are initial-load lab results, before the visitor activates YouTube; provider playback cost is deliberately deferred.
 
 ## Implemented
 
 Astro static publication with home, searchable Ideas library, pillar pages, essay pages, Watch, About, Join, Contact, draft Privacy/Terms and branded 404. Responsive navigation, keyboard interactions, local fonts/images, metadata, structured data, sitemap, security headers and publication filtering are implemented. Four clearly marked sample essays appear only in preview. One verified owner-channel Short, “How to Stay Calm | Stoic Wisdom,” appears in both builds.
 
-The acquisition path links YouTube and Instagram audiences through the site to https://one-truth-to-live-by-newsletter.beehiiv.com/. Circle is excluded. The website currently uses an external newsletter link; no email input or provider iframe is rendered in preview.
+The acquisition path links YouTube and Instagram audiences through the site to https://one-truth-to-live-by-newsletter.beehiiv.com/. Circle is excluded. The website currently uses an external newsletter link; no email input or newsletter iframe is rendered in preview.
 
 ## beehiiv work and evidence
 

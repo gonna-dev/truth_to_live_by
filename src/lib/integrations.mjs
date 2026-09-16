@@ -19,6 +19,25 @@ export function validEmbed(value) {
   }
 }
 
+// Derive a fixed-origin player URL from the existing editorial YouTube URL.
+export function youtubeEmbed(value) {
+  try {
+    const url = new URL(value);
+    if (url.protocol !== 'https:' || url.username || url.password || url.port) return '';
+    let id = '';
+    if (url.hostname === 'youtu.be') id = url.pathname.slice(1);
+    else if (['youtube.com', 'www.youtube.com'].includes(url.hostname)) {
+      if (url.pathname === '/watch') id = url.searchParams.get('v') || '';
+      else if (url.pathname.startsWith('/shorts/')) id = url.pathname.slice(8);
+    }
+    return /^[A-Za-z0-9_-]{11}$/.test(id)
+      ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0`
+      : '';
+  } catch {
+    return '';
+  }
+}
+
 export function validSignup(value) {
   if (!value) return '';
   try {

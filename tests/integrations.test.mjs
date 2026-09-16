@@ -1,6 +1,37 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validEmbed, validSignup, validEmail, newsletterConfig } from '../src/lib/integrations.mjs';
+import {
+  validEmbed,
+  validSignup,
+  validEmail,
+  newsletterConfig,
+  youtubeEmbed,
+} from '../src/lib/integrations.mjs';
+
+test('YouTube embeds keep a fixed privacy-enhanced origin and extract only a valid ID', () => {
+  for (const input of [
+    'https://www.youtube.com/shorts/7Gx-8crjg58',
+    'https://youtube.com/watch?v=7Gx-8crjg58&list=untrusted',
+    'https://youtu.be/7Gx-8crjg58',
+  ]) {
+    assert.equal(
+      youtubeEmbed(input),
+      'https://www.youtube-nocookie.com/embed/7Gx-8crjg58?autoplay=1&playsinline=1&rel=0',
+    );
+  }
+  for (const input of [
+    'javascript:alert(1)',
+    'http://youtube.com/watch?v=7Gx-8crjg58',
+    'https://youtube.com.evil.test/watch?v=7Gx-8crjg58',
+    'https://evil.test/shorts/7Gx-8crjg58',
+    'https://user:pass@youtube.com/watch?v=7Gx-8crjg58',
+    'https://youtube.com:999/watch?v=7Gx-8crjg58',
+    'https://youtube.com/watch?v=bad',
+    'https://youtu.be/7Gx-8crjg58/extra',
+  ]) {
+    assert.equal(youtubeEmbed(input), '');
+  }
+});
 
 test('newsletter stays disabled with incomplete or unapproved configuration', () => {
   const valid = {

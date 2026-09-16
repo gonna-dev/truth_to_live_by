@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { Image } from 'astro:assets';
+import VideoPlayer from '../components/VideoPlayer.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import Newsletter from '../components/Newsletter.astro';
 import { library } from '../lib/content';
@@ -101,20 +101,12 @@ const pillarTitle = (id: string) => pillars.find((p) => p.id === id)?.data.title
   </section>
   <section class="wrap watch-teaser section">
     {selectedVideo ? (
-      <a class="watch-feature-media" href={selectedVideo.data.youtube_url}>
-        <Image
-          src={selectedVideo.data.thumbnail}
-          alt={selectedVideo.data.thumbnail_alt}
-          width={405}
-          height={720}
-          format="webp"
-          loading="lazy"
-        />
-        <span class="watch-play" aria-hidden="true">
-          ▶
-        </span>
-        <span class="sr-only">Watch {selectedVideo.data.title}</span>
-      </a>
+      <VideoPlayer
+        video={selectedVideo}
+        relatedSlug={
+          articles.find((a) => a.id === selectedVideo.data.related_article?.id)?.data.slug
+        }
+      />
     ) : (
       <div class="watch-art" aria-hidden="true">
         <div class="watch-ring"></div>
@@ -140,11 +132,6 @@ const pillarTitle = (id: string) => pillars.find((p) => p.id === id)?.data.title
           ? selectedVideo.data.description
           : 'Watch our explorations of the ideas behind a more thoughtful life. Continue the conversation, one question at a time.'}
       </p>
-      {selectedVideo && (
-        <a class="button" href={selectedVideo.data.youtube_url}>
-          Watch the Short <span aria-hidden="true">↗</span>
-        </a>
-      )}
       <a class="text-link" href="/watch/">
         Explore the watch library <span aria-hidden="true">↗</span>
       </a>

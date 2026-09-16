@@ -8,6 +8,7 @@ try {
   const results = [];
   for (const [name, route] of [
     ['home', '/'],
+    ['watch', '/watch/'],
     ['article', '/ideas/what-deserves-your-attention/'],
     ['join', '/join/'],
   ]) {

@@ -20,7 +20,7 @@ The mobile navigation uses native details/summary, with progressive Escape/outsi
 
 CSS uses reset/base/components/responsive layers, central variables, a paper/charcoal/olive palette and Newsreader/DM Sans typography. Fonts are packaged locally. Original SVG illustrations live in src/assets; Astro produces responsive WebP variants and article PNG social cards. The brand PNG card is committed in public/social; its source generator is scripts/social-card.mjs. No remote image host or tracking pixel is needed.
 
-SVG processing is explicitly enabled only for the reviewed source-controlled artwork. External SVG or arbitrary uploads are not supported. Preserve width/height and alt text for media. YouTube videos are outbound links with local thumbnails, so no player executes during page load.
+SVG processing is explicitly enabled only for the reviewed source-controlled artwork. External SVG or arbitrary uploads are not supported. Preserve width/height and alt text for media. `VideoPlayer.astro` renders local video posters and progressively enhances a native Play button. No YouTube iframe, request, preconnect or SDK is loaded before activation. Play creates a fixed-origin `www.youtube-nocookie.com` iframe with native controls and requests inline autoplay; browsers may still require Play inside the iframe. Closing removes the frame and restores focus; opening another video closes the previous one. The existing `format` field selects 9:16 Shorts or 16:9 videos. External YouTube, related Ideas and newsletter links remain below each player, including when JavaScript or playback is unavailable. No content schema change or new dependency was needed.
 
 ## Newsletter and contact
 
