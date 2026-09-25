@@ -28,7 +28,7 @@ The newsletter component encapsulates beehiiv rather than spreading provider mar
 
 The embed owns actual validation, consent submission and provider success/error behavior. It uses a titled, lazy iframe, a limited sandbox and a hosted-page fallback. The iframe is not verified until the owner's real embed is provided and exercised. Tests of configuration gating do not prove delivery. No API credentials are required by the planned embed integration.
 
-Contact uses a configured brand-mailbox link. Without it, the page displays setup status and the official Instagram profile. It does not submit contact messages. Mailbox spam filtering is the intended spam protection; no personal address is published.
+Contact uses the dedicated brand-mailbox link from central brand configuration, with an optional environment override. If validation fails, the page displays the official Instagram and TikTok profiles. It does not submit contact messages. Gmail spam filtering is the intended spam protection; no personal address is published.
 
 Privacy and terms are explicitly marked drafts. The release checker rejects the current privacy and terms text even if someone toggles approval flags. Analytics is not enabled; no third-party analytics dependency is installed. Signup counts should come from confirmed beehiiv subscribers once integrated, not from counting CTA clicks as conversions.
 

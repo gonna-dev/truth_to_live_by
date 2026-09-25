@@ -1,6 +1,6 @@
 # Truth to Live By
 
-An independent editorial website for truthtoliveby.fyi. Astro 7, Markdown content collections, plain CSS, local fonts and optimized illustrations. The intended audience flow is **YouTube / Instagram → website → beehiiv email list**.
+An independent editorial website for truthtoliveby.fyi. Astro 7, Markdown content collections, plain CSS, local fonts and optimized illustrations. The intended audience flow is **YouTube / Instagram / TikTok → website → beehiiv email list**.
 
 The owner approved the architecture and design; public release is not approved. This repository currently provides a working local preview, with four labeled sample essays. See DEPLOYMENT-REPORT.md for current validation and outstanding launch items.
 
@@ -33,7 +33,7 @@ For mobile Lighthouse measurements, start `node scripts/serve-dist.mjs` after a 
 
 ## Configuration
 
-Copy `.env.example` to `.env` only when configuring integrations. Values prefixed `PUBLIC_` are public, not secrets. The verified beehiiv homepage is https://one-truth-to-live-by-newsletter.beehiiv.com/; it currently displays “truthtoliveby.fyi.” The embed URL, brand mailbox and final privacy details are still needed. Never use a personal address or API key as a public setting.
+Copy `.env.example` to `.env` only when configuring integrations. Values prefixed `PUBLIC_` are public, not secrets. The verified beehiiv homepage is https://one-truth-to-live-by-newsletter.beehiiv.com/; it currently displays “truthtoliveby.fyi.” The dedicated Gmail address and TikTok handle are configured in the central brand data. Mailbox delivery/spam handling, the TikTok public profile and final privacy details still need launch verification. Never use an API key as a public setting.
 
 Brand text/navigation/social links: `src/config/brand.ts`. Design tokens and responsive styles: `src/styles/global.css`. Content schema: `src/content.config.ts`. Release review facts: `config/release.json`.
 

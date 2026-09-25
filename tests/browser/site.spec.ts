@@ -61,6 +61,19 @@ test('newsletter never pretends to accept email while unconfigured', async ({ pa
   );
   await expect(page.locator('input[type=email], iframe')).toHaveCount(0);
 });
+test('dedicated contact and official social routes are exposed', async ({ page }) => {
+  await page.goto('/contact/');
+  await expect(page.getByRole('link', { name: 'Email Truth to Live By' })).toHaveAttribute(
+    'href',
+    'mailto:truthtoliveby.fyi@gmail.com',
+  );
+  await page.goto('/');
+  const socials = page.getByRole('navigation', { name: 'Social channels' });
+  await expect(socials.getByRole('link', { name: 'TikTok' })).toHaveAttribute(
+    'href',
+    'https://www.tiktok.com/@truthtoliveby',
+  );
+});
 test('keyboard navigation and mobile menu work', async ({ page, isMobile }) => {
   await page.goto('/');
   await page.keyboard.press('Tab');

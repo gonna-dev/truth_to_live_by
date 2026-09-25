@@ -1,5 +1,11 @@
 # Changelog
 
+## 24 September 2026 — Contact and TikTok
+
+- Added the dedicated Truth to Live By Gmail address as the validated Contact-page default.
+- Added `@truthtoliveby` on TikTok to central brand data, footer navigation, About copy and Organization metadata.
+- Updated privacy, security, deployment and acquisition-flow documentation while retaining launch verification gates.
+
 ## 16 September 2026 — On-site video playback
 
 - Added a reusable click-to-play YouTube privacy-enhanced player to home, Watch and article-related videos.

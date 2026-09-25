@@ -1,6 +1,14 @@
 # Deployment report
 
-Updated 16 September 2026. Status: local review preview; not approved for publication.
+Updated 24 September 2026. Status: local review preview; not approved for publication.
+
+## 24 September — dedicated mailbox and TikTok supplied
+
+The owner supplied the dedicated brand address `truthtoliveby.fyi@gmail.com` and TikTok handle `@truthtoliveby`. The Gmail address is now the Contact-page default and remains overridable through `PUBLIC_CONTACT_EMAIL`; it passed local syntax and rendered-link validation. The TikTok URL is in central brand configuration, the footer, About page, privacy copy and Organization structured data. The intended acquisition path now includes YouTube, Instagram and TikTok.
+
+No message was sent during this change, and the TikTok page could not be independently read through the available web lookup. Mail delivery in both directions, spam handling and the intended public TikTok profile must therefore still be checked before setting `contactVerified` or calling the profile verified. The release flags remain unchanged.
+
+Verification passed: 0 Astro/type errors, warnings or hints; 9 unit tests; production build and static checks across 12 pages; preview build and static checks across 16 pages; and all 44 desktop/mobile browser tests, including the new Gmail `mailto:` and TikTok footer-link assertions. The usual Windows Playwright server-cleanup hang occurred after all tests completed; terminating its identified local server allowed the suite to exit successfully.
 
 ## 16 September — user-requested on-site video playback
 
@@ -20,7 +28,7 @@ Final mobile Lighthouse rerun: homepage and Watch performance 97, accessibility 
 
 Astro static publication with home, searchable Ideas library, pillar pages, essay pages, Watch, About, Join, Contact, draft Privacy/Terms and branded 404. Responsive navigation, keyboard interactions, local fonts/images, metadata, structured data, sitemap, security headers and publication filtering are implemented. Four clearly marked sample essays appear only in preview. One verified owner-channel Short, “How to Stay Calm | Stoic Wisdom,” appears in both builds.
 
-The acquisition path links YouTube and Instagram audiences through the site to https://one-truth-to-live-by-newsletter.beehiiv.com/. Circle is excluded. The website currently uses an external newsletter link; no email input or newsletter iframe is rendered in preview.
+The acquisition path links YouTube, Instagram and TikTok audiences through the site to https://one-truth-to-live-by-newsletter.beehiiv.com/. Circle is excluded. The website currently uses an external newsletter link; no email input or newsletter iframe is rendered in preview.
 
 ## beehiiv work and evidence
 

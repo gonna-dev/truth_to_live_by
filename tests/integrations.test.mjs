@@ -69,6 +69,7 @@ test('contact rejects header injection and malformed addresses', () => {
   ])
     assert.equal(validEmail(value), '');
   assert.equal(validEmail('editor@example.com'), 'editor@example.com');
+  assert.equal(validEmail('truthtoliveby.fyi@gmail.com'), 'truthtoliveby.fyi@gmail.com');
 });
 
 test('beehiiv v3 permits only a standalone form, not scripts or preview URLs', () => {

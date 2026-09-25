@@ -10,6 +10,8 @@ export const brand = {
     'One useful idea, thoughtfully explored and distilled into something you can actually use.',
   youtube: 'https://www.youtube.com/@TruthtoLiveBy',
   instagram: 'https://www.instagram.com/truthtoliveby.fyi/',
+  tiktok: 'https://www.tiktok.com/@truthtoliveby',
+  contactEmail: 'truthtoliveby.fyi@gmail.com',
   nav: [
     { label: 'Home', href: '/' },
     { label: 'Ideas', href: '/ideas/' },
