@@ -1,12 +1,18 @@
 # Deployment report
 
-Updated 24 September 2026. Status: local review preview; not approved for publication.
+Updated 25 September 2026. Status: local review preview; not approved for publication.
+
+## 25 September — TikTok profile verified
+
+The owner confirmed that the intended public TikTok profile at `https://www.tiktok.com/@truthtoliveby` is complete. This resolves the outstanding profile-identity check for the TikTok link already used in central brand configuration, the footer, About page, privacy copy and Organization structured data. No TikTok credentials, content or account settings were changed through the website project.
+
+This confirmation does not change any release flag. Contact-email delivery and spam handling remain separate checks, and the completed website preview still requires explicit publication approval.
 
 ## 24 September — dedicated mailbox and TikTok supplied
 
 The owner supplied the dedicated brand address `truthtoliveby.fyi@gmail.com` and TikTok handle `@truthtoliveby`. The Gmail address is now the Contact-page default and remains overridable through `PUBLIC_CONTACT_EMAIL`; it passed local syntax and rendered-link validation. The TikTok URL is in central brand configuration, the footer, About page, privacy copy and Organization structured data. The intended acquisition path now includes YouTube, Instagram and TikTok.
 
-No message was sent during this change, and the TikTok page could not be independently read through the available web lookup. Mail delivery in both directions, spam handling and the intended public TikTok profile must therefore still be checked before setting `contactVerified` or calling the profile verified. The release flags remain unchanged.
+No message was sent during this change, and the TikTok page could not then be independently read through the available web lookup. Mail delivery in both directions and spam handling must therefore still be checked before setting `contactVerified`. The TikTok profile was subsequently confirmed by the owner on 25 September, as recorded above. The release flags remain unchanged.
 
 Verification passed: 0 Astro/type errors, warnings or hints; 9 unit tests; production build and static checks across 12 pages; preview build and static checks across 16 pages; and all 44 desktop/mobile browser tests, including the new Gmail `mailto:` and TikTok footer-link assertions. The usual Windows Playwright server-cleanup hang occurred after all tests completed; terminating its identified local server allowed the suite to exit successfully.
 
