@@ -73,6 +73,10 @@ test('dedicated contact and official social routes are exposed', async ({ page }
     'href',
     'https://www.tiktok.com/@truthtoliveby',
   );
+  await expect(socials.getByRole('link', { name: 'Facebook' })).toHaveAttribute(
+    'href',
+    'https://www.facebook.com/profile.php?id=61594741382572',
+  );
 });
 test('keyboard navigation and mobile menu work', async ({ page, isMobile }) => {
   await page.goto('/');

@@ -2,7 +2,7 @@
 
 ## Scope and ownership
 
-Read USER-REQUIREMENTS.txt, IMPLEMENTATION-PLAN.md and the current DEPLOYMENT-REPORT.md before changing scope. The owner approved the architecture and visual concept on 14 September 2026. The acquisition flow is YouTube / Instagram / TikTok → truthtoliveby.fyi → beehiiv. Circle is not part of this site.
+Read USER-REQUIREMENTS.txt, IMPLEMENTATION-PLAN.md and the current DEPLOYMENT-REPORT.md before changing scope. The owner approved the architecture and visual concept on 14 September 2026. The acquisition flow is YouTube / Instagram / TikTok / Facebook → truthtoliveby.fyi → beehiiv. Circle is not part of this site.
 
 The source repository is https://github.com/gonna-dev/truth_to_live_by. Work on a feature branch. Keep meaningful changes in separate commits and preserve existing history. Never force-push or rewrite main.
 

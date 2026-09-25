@@ -2,6 +2,14 @@
 
 Updated 25 September 2026. Status: local review preview; not approved for publication.
 
+## 25 September — Facebook page supplied and verified
+
+The owner supplied the Facebook page name “Truthtoliveby.fyi” and its numeric address, `https://www.facebook.com/profile.php?id=61594741382572`. A logged-out browser check resolved that address to Facebook’s “Truthtoliveby.fyi” page at `/people/Truthtolivebyfyi/61594741382572/`. The stable owner-supplied numeric address is now in central brand configuration, the footer, About page, privacy copy and Organization structured data. Facebook remains an ordinary outbound link and does not change the CSP or load Facebook resources into the site.
+
+The acquisition path is now YouTube / Instagram / TikTok / Facebook → truthtoliveby.fyi → beehiiv. No Facebook credentials, page settings or content were changed. This addition does not change any publication or release flag.
+
+Verification passed: 0 Astro/type errors, warnings or hints; 9 unit tests; production build and static checks across 12 pages; preview build and static checks across 16 pages; and all 44 desktop/mobile browser tests. The social-route test now asserts the exact numeric Facebook page address. Updated full-page desktop and mobile screenshots were inspected; the additional footer link fits without overflow or accessibility violations. The known Windows Playwright cleanup hang recurred after every test passed, and terminating only the identified local `scripts/serve-dist.mjs` process allowed the suite to exit successfully.
+
 ## 25 September — TikTok profile verified
 
 The owner confirmed that the intended public TikTok profile at `https://www.tiktok.com/@truthtoliveby` is complete. This resolves the outstanding profile-identity check for the TikTok link already used in central brand configuration, the footer, About page, privacy copy and Organization structured data. No TikTok credentials, content or account settings were changed through the website project.

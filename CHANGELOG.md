@@ -1,5 +1,11 @@
 # Changelog
 
+## 25 September 2026 — Facebook
+
+- Added the owner-supplied “Truthtoliveby.fyi” Facebook page to central brand data, footer navigation, About copy and Organization metadata.
+- Confirmed that the numeric page address resolves to the intended page while logged out.
+- Updated privacy, security, deployment and acquisition-flow documentation.
+
 ## 24 September 2026 — Contact and TikTok
 
 - Added the dedicated Truth to Live By Gmail address as the validated Contact-page default.

@@ -13,7 +13,8 @@ Local preview: `npm run dev -- --port 4321`. Production-shaped preview for testi
 - Update beehiiv publication branding. Its current verified homepage is https://one-truth-to-live-by-newsletter.beehiiv.com/ and the displayed name is “truthtoliveby.fyi.”
 - The beehiiv v3 form is configured and its standalone URL is recorded in `.env.example`. Double opt-in is enabled in the saved form. Verify iframe compatibility, consent, success, duplicate handling, failure/retry and actual confirmation-email delivery before enabling collection. Empty-email validation has been checked; a loaded form is not proof of subscription success. See DEPLOYMENT-REPORT.md.
 - Confirm delivery in both directions and spam filtering for `truthtoliveby.fyi@gmail.com`; the dedicated address is configured but remains unverified for release.
-- Confirm that https://www.tiktok.com/@truthtoliveby resolves to the intended public profile before launch.
+- Confirm that https://www.tiktok.com/@truthtoliveby resolves to the intended public profile before launch. Owner confirmation was recorded on 25 September 2026.
+- The owner-supplied Facebook address `https://www.facebook.com/profile.php?id=61594741382572` resolves to the intended “Truthtoliveby.fyi” page; this was checked logged out on 25 September 2026.
 - Replace privacy/terms drafts with accurate approved text. Include actual controller, processors, purposes/legal bases, retention, rights/contact and transfer safeguards as applicable.
 - Review screenshots and quality results; record completed-preview approval.
 

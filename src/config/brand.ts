@@ -11,6 +11,7 @@ export const brand = {
   youtube: 'https://www.youtube.com/@TruthtoLiveBy',
   instagram: 'https://www.instagram.com/truthtoliveby.fyi/',
   tiktok: 'https://www.tiktok.com/@truthtoliveby',
+  facebook: 'https://www.facebook.com/profile.php?id=61594741382572',
   contactEmail: 'truthtoliveby.fyi@gmail.com',
   nav: [
     { label: 'Home', href: '/' },
