@@ -15,7 +15,7 @@ Local preview: `npm run dev -- --port 4321`. Production-shaped preview for testi
 - Confirm delivery in both directions and spam filtering for `truthtoliveby.fyi@gmail.com`; the dedicated address is configured but remains unverified for release.
 - Confirm that https://www.tiktok.com/@truthtoliveby resolves to the intended public profile before launch. Owner confirmation was recorded on 25 September 2026.
 - The owner-supplied Facebook address `https://www.facebook.com/profile.php?id=61594741382572` resolves to the intended “Truthtoliveby.fyi” page; this was checked logged out on 25 September 2026.
-- Review and approve `/publishing/` plus the OAuth sections of `/privacy/` and `/terms/`. Confirm the exact Google OAuth scope, controller particulars, retention position and deletion procedure before submitting the URLs to Google.
+- Review and approve `/publishing/` plus the OAuth sections of `/privacy/` and `/terms/`. The confirmed scopes are `youtube.upload` and `youtube.readonly`; confirm controller particulars, retention position and deletion procedure before submitting the URLs to Google.
 - Replace privacy/terms drafts with accurate approved text. Include actual controller, processors, purposes/legal bases, retention, rights/contact and transfer safeguards as applicable.
 - Review screenshots and quality results; record completed-preview approval.
 

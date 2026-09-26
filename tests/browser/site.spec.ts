@@ -87,6 +87,8 @@ test('OAuth publishing disclosure describes the private YouTube workflow', async
   await expect(
     page.getByText('The current workflow creates uploaded videos as private.'),
   ).toBeVisible();
+  await expect(page.getByText('youtube.upload', { exact: true })).toBeVisible();
+  await expect(page.getByText('youtube.readonly', { exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Truth to Live By Privacy Notice' })).toHaveAttribute(
     'href',
     '/privacy/',

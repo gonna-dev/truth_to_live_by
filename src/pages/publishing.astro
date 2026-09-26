@@ -51,6 +51,20 @@ import { brand } from '../config/brand';
         metadata supplied by the owner, and the video identifier and status returned by YouTube. It
         does not ask for or receive the owner’s Google password.
       </p>
+      <p>The application requests these Google OAuth permissions:</p>
+      <ul>
+        <li>
+          <code>youtube.upload</code> — upload the owner-selected videos and their metadata.
+        </li>
+        <li>
+          <code>youtube.readonly</code> — read the authorised channel’s basic identity so the
+          application can refuse to operate against an unexpected channel.
+        </li>
+      </ul>
+      <p>
+        These permissions do not allow the application to read the owner’s Gmail, Google Drive or
+        unrelated Google Account information.
+      </p>
 
       <h2>Storage and control</h2>
       <p>

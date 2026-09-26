@@ -79,6 +79,13 @@ import Base from '../layouts/Base.astro';
         titles, descriptions and related metadata.
       </p>
       <p>
+        The requested Google OAuth permissions are <code>youtube.upload</code>, used to upload the
+        owner-selected videos and metadata, and <code>youtube.readonly</code>, used to read the
+        authorised channel’s basic identity and prevent publishing to an unexpected channel. The
+        application does not request access to Gmail, Google Drive or unrelated Google Account
+        information.
+      </p>
+      <p>
         For these operations, the application processes the authorised YouTube channel identifier
         and title; OAuth access and refresh credentials; locally selected video files and publishing
         metadata; and the video identifiers, status and operational responses returned by YouTube.

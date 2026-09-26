@@ -4,6 +4,7 @@
 
 - Added a public-facing application description for the owner-operated social publisher and its private-only YouTube workflow.
 - Expanded the draft Privacy and Terms pages with the verified local OAuth, media, metadata, token and publishing-record data flow.
+- Documented the confirmed `youtube.upload` and `youtube.readonly` scopes and their narrow purposes.
 - Kept OAuth credentials, media and publishing operations outside the website and retained every release approval gate.
 
 ## 25 September 2026 — Facebook
