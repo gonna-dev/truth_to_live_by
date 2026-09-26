@@ -14,6 +14,8 @@ The owner supplied the controller identity Mark Walsh. The website now contains 
 
 The owner approved a 12-month retention period for operational publishing logs. OAuth credentials are retained only while authorisation remains active and are deleted when replaced, revoked or no longer required. Approved requests to delete locally stored publishing records are completed within 30 days unless a legal obligation requires retention; privacy requests are handled within the legally applicable period through the dedicated brand contact route.
 
+Final-review Privacy and Terms text has been prepared against the implemented service map. It names the individual controller and contact route; describes Cloudflare hosting, click-to-load YouTube playback, beehiiv newsletter processing, Gmail correspondence and the local Google OAuth publisher; and covers purposes, legal bases, retention, international-transfer safeguards and individual rights. Contact correspondence is proposed for deletion within 24 months after the last substantive contact, subject to continuing relationships and legal obligations. The approval flags remain false until the owner reviews and expressly approves both pages.
+
 Website verification passed: 0 Astro/type errors, warnings or hints; 9 unit tests; production build and static checks across 13 pages; preview build and static checks across 17 pages; and all 48 desktop/mobile browser tests. The new publishing disclosure has automated content, privacy-link, accessibility and overflow checks. Full-page desktop and mobile screenshots were generated and inspected; the page retains the approved editorial presentation and remains readable at both sizes.
 
 ## 25 September — Facebook page supplied and verified

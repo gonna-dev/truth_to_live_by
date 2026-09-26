@@ -1,10 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import { brand } from '../config/brand';
 ---
 
 <Base
   title="Privacy"
-  description="How Truth to Live By handles information across its website, contact route and owner-operated publishing system."
+  description="How Truth to Live By handles information across its website, newsletter, contact route and owner-operated publishing system."
 >
   <div class="wrap">
     <header class="page-intro">
@@ -13,77 +14,84 @@ import Base from '../layouts/Base.astro';
       <p class="lede">Clear information about what this website does with your data.</p>
     </header>
     <div class="prose-page">
-      <aside class="sample-note">
-        <strong>Prepared for owner and OAuth review.</strong> This notice remains part of the local
-        website preview. The owner must approve it before public deployment or on-site email
-        collection.
-      </aside>
+      <p class="small">Last updated: 26 September 2026.</p>
+
       <h2>Who is responsible</h2>
       <p>
         Truth to Live By is an independent publishing project operated by Mark Walsh in Ireland.
-        Mark Walsh is the data controller. Privacy questions, requests and concerns can be sent
-        through the <a href="/contact/">Contact page</a> to the dedicated Truth to Live By email
-        address.
+        Mark Walsh is the data controller. Privacy questions, requests and concerns can be sent to{' '}
+        <a href={`mailto:${brand.contactEmail}`}>{brand.contactEmail}</a> or through the{' '}
+        <a href="/contact/">Contact page</a>.
       </p>
 
-      <h2>The website</h2>
+      <h2>The website and hosting</h2>
       <p>
-        The website does not include a website contact form, advertising tracker or analytics
-        service. Fonts and illustrations are served with the site. It does not use a database or
-        create visitor accounts. On-site newsletter collection remains disabled in the preview.
+        This is a static website. It does not create visitor accounts and does not include an
+        advertising tracker, analytics service or website contact form. Fonts, thumbnails and
+        illustrations are served with the site. The site does not deliberately set cookies or
+        local-storage identifiers before a visitor chooses to play a YouTube video.
       </p>
       <p>
-        The site does not deliberately store cookies or local-storage identifiers. Ordinary hosting
-        or local server request logs may record technical request information; the production
-        hosting configuration and retention details have not yet been confirmed.
+        Cloudflare hosts, delivers and protects the website. In doing so, Cloudflare may process
+        technical request information such as an IP address, requested URL, date and time, browser
+        or device information, and security signals. This processing is necessary to deliver and
+        secure the site and supports the legitimate interest in operating a reliable publication.
+        Truth to Live By does not currently use Cloudflare Web Analytics or receive individual
+        visitor profiles.
       </p>
-      <h2>Links to other services</h2>
-      <p>
-        Links to YouTube, Instagram, TikTok, Facebook and the newsletter on beehiiv take you to
-        those services. Their own privacy information applies when you visit them or choose to
-        subscribe there. No YouTube player or beehiiv form is loaded automatically in this preview.
-      </p>
+
       <h2>Playing videos</h2>
       <p>
-        Pressing Play loads a YouTube privacy-enhanced player on this site and connects your browser
-        to YouTube. YouTube can then receive technical and playback information and may use storage.
-        Privacy-enhanced mode does not make playback anonymous. Before Play, thumbnails are served
-        locally and no YouTube player connection is made. Closing a video removes its player.
+        Before Play is pressed, video thumbnails are served locally and no YouTube player connection
+        is made. Pressing Play loads YouTube’s privacy-enhanced player and connects the visitor’s
+        browser to YouTube. Google and YouTube can then receive technical and playback information
+        and may use browser storage. Privacy-enhanced mode does not make playback anonymous. Closing
+        a video removes its player.
       </p>
-      <h2>Before on-site newsletter signup opens</h2>
+
+      <h2>The newsletter</h2>
       <p>
-        The final notice must identify the site’s data controller and contact details, the selected
-        newsletter service, the information collected, the relevant purposes and legal bases,
-        retention arrangements, any international transfers and the safeguards that apply.
+        The One Truth to Live By newsletter is provided through beehiiv. Newsletter links open the
+        Truth to Live By publication on beehiiv; this website does not receive an email address or
+        load a beehiiv form automatically. If a visitor subscribes there, Truth to Live By and
+        beehiiv process the email address, subscription and confirmation status, and the technical,
+        acquisition and engagement information that beehiiv records for operating the newsletter.
       </p>
       <p>
-        It must also explain withdrawal of consent and the applicable rights to access, correction,
-        erasure, restriction, objection and portability, along with how to exercise them and how to
-        complain to the appropriate supervisory authority.
+        Newsletter messages are sent on the basis of consent. A subscriber can withdraw consent at
+        any time by using the unsubscribe link in an email or contacting Truth to Live By. Active
+        subscriber information is kept while the subscription continues. After unsubscription,
+        information is deleted or anonymised when it is no longer needed, except for the minimum
+        suppression or compliance record required to honour the unsubscribe request and meet legal
+        obligations.
       </p>
+
       <h2>Contact correspondence</h2>
       <p>
-        The Contact page opens your email application to write to the dedicated Truth to Live By
-        Gmail address. The website does not receive or store the message itself. Google processes
-        correspondence sent to that mailbox. Correspondence is used to respond to the enquiry,
-        consider corrections or manage a requested professional relationship. Retention is limited
-        to what is reasonably needed for those purposes and any applicable legal obligations.
+        The Contact page opens the visitor’s email application to write to the dedicated Truth to
+        Live By Gmail address. The website does not receive or store the message itself. Google
+        processes correspondence sent to that mailbox. Correspondence is used to respond to an
+        enquiry, consider a correction or manage a requested professional relationship. The legal
+        basis is the legitimate interest in responding and maintaining appropriate records, or steps
+        requested before entering an agreement where applicable. Correspondence is normally deleted
+        within 24 months after the last substantive contact unless it is still needed for the
+        relationship or a legal obligation.
       </p>
 
       <h2>The owner-operated publishing application</h2>
       <p>
         Truth to Live By uses a private publishing application to manage approved content for its
-        official channels. The application is not a service offered to website visitors. Its Google
-        OAuth connection is authorised by the channel owner and is used to confirm the intended
-        YouTube channel, refresh the authorised session and upload owner-selected videos with their
-        titles, descriptions and related metadata.
+        official channels. It is not a service offered to website visitors. Its Google OAuth
+        connection is authorised by the channel owner and is used to confirm the intended YouTube
+        channel, refresh the authorised session and upload owner-selected videos with their titles,
+        descriptions and related metadata. This supports the legitimate interest in operating the
+        publication securely and preventing uploads to an unexpected channel.
       </p>
       <p>
         The requested Google OAuth permissions are <code>youtube.upload</code>, used to upload the
         owner-selected videos and metadata, and <code>youtube.readonly</code>, used to read the
-        authorised channel’s basic identity and prevent publishing to an unexpected channel. The
-        application does not request access to Gmail, Google Drive or unrelated Google Account
-        information.
+        authorised channel’s basic identity. The application does not request access to Gmail,
+        Google Drive or unrelated Google Account information.
       </p>
       <p>
         For these operations, the application processes the authorised YouTube channel identifier
@@ -95,42 +103,42 @@ import Base from '../layouts/Base.astro';
         Media and credentials remain in the owner-controlled local publishing environment. They are
         excluded from the website and source repositories. Publishing state and operational logs are
         kept separately for each brand. Google information is used only to provide the requested
-        channel verification and upload functions. It is not sold, used for advertising or shared
+        channel-verification and upload functions. It is not sold, used for advertising or shared
         with unrelated third parties.
       </p>
       <p>
         Operational publishing logs are retained for 12 months and then deleted. OAuth credentials
         are retained only while the authorisation remains active and are deleted when they are
-        replaced, revoked or no longer required.
+        replaced, revoked or no longer required. Access can be revoked through the authorising
+        Google Account’s security settings. See <a href="/publishing/">Publishing system</a> for a
+        plain-language description of the application.
       </p>
+
+      <h2>Service providers and international transfers</h2>
       <p>
-        Google and YouTube process information when the owner authorises the application and when
-        the application checks a channel, refreshes authorisation or uploads a video. Their own
-        terms and privacy information also apply. The owner can revoke access through the
-        authorising Google Account’s security settings. Local OAuth credentials and publishing
-        records can then be deleted from the publishing environment. See{' '}
-        <a href="/publishing/">Publishing system</a>
-        for a plain-language description of the application.
+        Cloudflare provides hosting, delivery and security; beehiiv provides the newsletter service;
+        and Google provides Gmail and YouTube. These providers may process information outside
+        Ireland or the European Economic Area. Where required, transfers are protected through an
+        applicable adequacy framework or contractual safeguards such as the European Commission’s
+        Standard Contractual Clauses. Each provider also publishes its own privacy information.
       </p>
 
       <h2>Rights and requests</h2>
       <p>
         Depending on the circumstances, applicable data-protection rights may include access,
-        correction, erasure, restriction, objection and portability, along with the right to
-        complain to the appropriate supervisory authority. Use the{' '}
-        <a href="/contact/">Contact page</a> to make a request. Identity may need to be confirmed
-        before a request is completed. Requests are handled within the legally applicable period.
-        Following an approved deletion request, locally stored publishing records are deleted within
-        30 days unless they must be retained to meet a legal obligation.
+        correction, erasure, restriction, objection and portability, along with withdrawal of
+        consent and the right to complain to the Irish Data Protection Commission. Send a request to{' '}
+        <a href={`mailto:${brand.contactEmail}`}>{brand.contactEmail}</a>. Identity may need to be
+        confirmed before a request is completed. Requests are handled within the legally applicable
+        period. Following an approved deletion request, locally stored publishing records are
+        deleted within 30 days unless they must be retained to meet a legal obligation.
       </p>
-      <h2>Future changes</h2>
+
+      <h2>Changes to this notice</h2>
       <p>
-        Any introduction of analytics, embedded subscription forms or other processors requires a
-        review of this notice and the actual data flows. A cookie-consent interface should be added
-        only if the chosen implementation requires one.
-      </p>
-      <p>
-        For the brand’s current contact route, see <a href="/contact/">Contact</a>.
+        This notice will be updated before introducing a new analytics service, embedded
+        subscription form or other material data use. The date above will change when the notice is
+        revised. A cookie-consent interface will be added if a future implementation requires one.
       </p>
     </div>
   </div>

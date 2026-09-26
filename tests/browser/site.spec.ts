@@ -99,6 +99,27 @@ test('OAuth publishing disclosure describes the private YouTube workflow', async
     '/privacy/',
   );
 });
+test('privacy and terms match the reviewed services and retention rules', async ({ page }) => {
+  await page.goto('/privacy/');
+  await expect(page.getByText(/Mark Walsh is the data controller/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'The website and hosting' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'The newsletter' })).toBeVisible();
+  await expect(page.getByText(/deleted within 24 months/)).toBeVisible();
+  await expect(
+    page.getByText(/Operational publishing logs are retained for 12 months/),
+  ).toBeVisible();
+  await expect(page.getByText(/Standard Contractual Clauses/)).toBeVisible();
+  await expect(page.getByText(/Irish Data Protection Commission/)).toBeVisible();
+  await expect(
+    page.getByRole('link', { name: 'truthtoliveby.fyi@gmail.com' }).first(),
+  ).toHaveAttribute('href', 'mailto:truthtoliveby.fyi@gmail.com');
+
+  await page.goto('/terms/');
+  await expect(page.getByText(/operated by Mark Walsh in Ireland/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Acceptable use' })).toBeVisible();
+  await expect(page.getByText(/governed by Irish law/)).toBeVisible();
+  await expect(page.getByText(/Draft for owner review/)).toHaveCount(0);
+});
 test('keyboard navigation and mobile menu work', async ({ page, isMobile }) => {
   await page.goto('/');
   await page.keyboard.press('Tab');
@@ -137,6 +158,8 @@ test('capture home, library and essay for visual review', async ({ page }, testI
     ['ideas', '/ideas/'],
     ['article', '/ideas/what-deserves-your-attention/'],
     ['publishing', '/publishing/'],
+    ['privacy', '/privacy/'],
+    ['terms', '/terms/'],
   ]) {
     await page.goto(route);
     await page.evaluate(() => document.fonts.ready);
