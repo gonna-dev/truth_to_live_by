@@ -6,6 +6,7 @@
 - Expanded the draft Privacy and Terms pages with the verified local OAuth, media, metadata, token and publishing-record data flow.
 - Documented the confirmed `youtube.upload` and `youtube.readonly` scopes and their narrow purposes.
 - Identified Mark Walsh as the individual operator and data controller without implying an incorporated business.
+- Finalised the publisher policy with a 12-month operational-log retention period, lifecycle-based OAuth credential deletion and a 30-day timeframe for approved local-record deletion requests.
 - Kept OAuth credentials, media and publishing operations outside the website and retained every release approval gate.
 
 ## 25 September 2026 — Facebook

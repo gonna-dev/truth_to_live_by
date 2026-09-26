@@ -90,6 +90,10 @@ test('OAuth publishing disclosure describes the private YouTube workflow', async
   await expect(page.getByText('youtube.upload', { exact: true })).toBeVisible();
   await expect(page.getByText('youtube.readonly', { exact: true })).toBeVisible();
   await expect(page.getByText(/operated by Mark Walsh/)).toBeVisible();
+  await expect(
+    page.getByText(/Operational publishing logs are retained for 12 months/),
+  ).toBeVisible();
+  await expect(page.getByText(/completed within 30 days/)).toBeVisible();
   await expect(page.getByRole('link', { name: 'Truth to Live By Privacy Notice' })).toHaveAttribute(
     'href',
     '/privacy/',

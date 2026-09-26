@@ -12,6 +12,8 @@ The owner confirmed Google Cloud project `TruthToLiveBy-YouTubePublish` (`trutht
 
 The owner supplied the controller identity Mark Walsh. The website now contains a `/publishing/` application homepage and expanded draft Privacy and Terms disclosures identifying Mark Walsh as the individual operator and data controller, describing the verified owner-operated data flow and both requested scopes. The site neither receives OAuth tokens nor runs the publisher. These pages remain local and explicitly marked for owner/OAuth review; privacy, terms and publication flags remain false.
 
+The owner approved a 12-month retention period for operational publishing logs. OAuth credentials are retained only while authorisation remains active and are deleted when replaced, revoked or no longer required. Approved requests to delete locally stored publishing records are completed within 30 days unless a legal obligation requires retention; privacy requests are handled within the legally applicable period through the dedicated brand contact route.
+
 Website verification passed: 0 Astro/type errors, warnings or hints; 9 unit tests; production build and static checks across 13 pages; preview build and static checks across 17 pages; and all 48 desktop/mobile browser tests. The new publishing disclosure has automated content, privacy-link, accessibility and overflow checks. Full-page desktop and mobile screenshots were generated and inspected; the page retains the approved editorial presentation and remains readable at both sizes.
 
 ## 25 September — Facebook page supplied and verified
