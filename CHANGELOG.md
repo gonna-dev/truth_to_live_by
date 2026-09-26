@@ -1,5 +1,11 @@
 # Changelog
 
+## 26 September 2026 — OAuth publishing disclosure
+
+- Added a public-facing application description for the owner-operated social publisher and its private-only YouTube workflow.
+- Expanded the draft Privacy and Terms pages with the verified local OAuth, media, metadata, token and publishing-record data flow.
+- Kept OAuth credentials, media and publishing operations outside the website and retained every release approval gate.
+
 ## 25 September 2026 — Facebook
 
 - Added the owner-supplied “Truthtoliveby.fyi” Facebook page to central brand data, footer navigation, About copy and Organization metadata.

@@ -13,6 +13,7 @@ const pages = [
   '/contact/',
   '/privacy/',
   '/terms/',
+  '/publishing/',
   '/ideas/what-deserves-your-attention/',
 ];
 for (const route of pages) {
@@ -78,6 +79,19 @@ test('dedicated contact and official social routes are exposed', async ({ page }
     'https://www.facebook.com/profile.php?id=61594741382572',
   );
 });
+test('OAuth publishing disclosure describes the private YouTube workflow', async ({ page }) => {
+  await page.goto('/publishing/');
+  await expect(
+    page.getByRole('heading', { name: 'The Truth to Live By publishing system.' }),
+  ).toBeVisible();
+  await expect(
+    page.getByText('The current workflow creates uploaded videos as private.'),
+  ).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Truth to Live By Privacy Notice' })).toHaveAttribute(
+    'href',
+    '/privacy/',
+  );
+});
 test('keyboard navigation and mobile menu work', async ({ page, isMobile }) => {
   await page.goto('/');
   await page.keyboard.press('Tab');
@@ -115,6 +129,7 @@ test('capture home, library and essay for visual review', async ({ page }, testI
     ['home', '/'],
     ['ideas', '/ideas/'],
     ['article', '/ideas/what-deserves-your-attention/'],
+    ['publishing', '/publishing/'],
   ]) {
     await page.goto(route);
     await page.evaluate(() => document.fonts.ready);

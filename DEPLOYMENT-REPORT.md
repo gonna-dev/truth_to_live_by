@@ -1,6 +1,16 @@
 # Deployment report
 
-Updated 25 September 2026. Status: local review preview; not approved for publication.
+Updated 26 September 2026. Status: local review preview; not approved for publication.
+
+## 26 September — social publisher and YouTube OAuth evidence
+
+The separate `Social_media_bot` project is now a multi-brand, multi-platform publisher. Its merged `master` commit `4d675f8` isolates MKP and TruthToLiveBy manifests, credentials, logs and publishing state. The TruthToLiveBy YouTube adapter refreshes OAuth access, checks the authorised channel identity, uploads a local MP4 through YouTube’s resumable upload API and supplies title, description, tags, category and made-for-kids metadata. Code rejects every visibility other than private. Media and brand credentials remain local and are excluded from Git.
+
+The owner reports that the current OAuth authorisation resolves to “Truth to Live By,” channel ID `UCm6qo4ralmcA24XzOwn9xBw`, using the channel-owning Google account. An initial private test reached an unintended channel before that account issue was corrected. A second private test reached the intended channel and appeared as a vertical Short. The private video identifiers remain in the bot’s ignored local state rather than this website. The bot’s 23 automated tests pass. Its TruthToLiveBy Windows task is installed but disabled, so no unattended upload is enabled. TikTok draft support exists in code but has not been connected or tested live.
+
+The website now contains a `/publishing/` application homepage and expanded draft Privacy and Terms disclosures describing the verified owner-operated data flow. The site neither receives OAuth tokens nor runs the publisher. The exact OAuth scope used to issue the current token is not declared in tracked bot code and must be confirmed in Google Cloud before verification. These pages remain local and explicitly marked for owner/OAuth review; privacy, terms and publication flags remain false.
+
+Website verification passed: 0 Astro/type errors, warnings or hints; 9 unit tests; production build and static checks across 13 pages; preview build and static checks across 17 pages; and all 48 desktop/mobile browser tests. The new publishing disclosure has automated content, privacy-link, accessibility and overflow checks. Full-page desktop and mobile screenshots were generated and inspected; the page retains the approved editorial presentation and remains readable at both sizes.
 
 ## 25 September — Facebook page supplied and verified
 
