@@ -1,6 +1,16 @@
 # Deployment report
 
-Updated 26 September 2026. Status: local review preview; not approved for publication.
+Updated 27 September 2026. Status: local review preview; not approved for publication.
+
+## 27 September — first researched article batch drafted
+
+The first three articles in the approved editorial plan have been drafted, one for each pillar: “Discipline Is Not Self-Punishment” (Self), “Why Adult Friendships Need Rituals, Not Just Good Intentions” (Relationships), and “Why You Stay Up Even When You’re Exhausted” (Living Well). They are substantive drafts of approximately 1,700–2,000 words with structured source records, evidence notes, practical takeaways and related-article references. The drafts use the existing reviewed local illustrations and require no application-component changes.
+
+The articles distinguish research findings from editorial interpretation and record material limitations. The discipline essay avoids treating experimental and correlational findings as a universal method; the friendship essay identifies the field’s observational, self-reported and student-sample limitations; and the sleep essay separates voluntary bedtime delay from insomnia, shift work, caregiving, pain and sleep disorders. Health-related guidance remains general and includes an appropriate route to professional assessment.
+
+All three entries remain `draft: true` and `placeholder: true`. Their dates are provisional draft metadata, not public publication dates. They appear only in the local preview with sample labels and are excluded from production lists, search data, related content and sitemap. No editorial approval, completed-preview approval, release flag, newsletter setting or deployment state changed.
+
+Verification passed: 0 Astro/type errors, warnings or hints; 9 unit tests; production build and static checks across 13 pages; preview build and static checks across 20 pages; and all 50 desktop/mobile browser tests. The Ideas library and all three full article pages were captured and visually inspected at desktop size, and the Ideas library was inspected at mobile size. Publication isolation remains intact.
 
 ## 26 September — social publisher and YouTube OAuth evidence
 
