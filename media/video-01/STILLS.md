@@ -4,14 +4,16 @@ These six original production stills were generated with the built-in ChatGPT im
 
 ## Scene map
 
+The detailed voiceover and caption cue sheet is in `TIMELINE.md`.
+
 | Time      | File                               | Purpose                                            |
 | --------- | ---------------------------------- | -------------------------------------------------- |
 | 0:00–0:08 | `01-hook-broken-pencil.png`        | Harsh discipline and the opening pattern interrupt |
-| 0:08–0:16 | `02-missed-action-calm-return.png` | Missed behaviour contrasted with a clean return    |
-| 0:16–0:25 | `03-review-questions-notebook.png` | Space for the three self-review questions          |
-| 0:25–0:35 | `04-phone-away-book-ready.png`     | Removing one negotiation from the environment      |
-| 0:35–0:44 | `05-shoes-ready-by-door.png`       | Preparing a small, useful action in advance        |
-| 0:44–0:48 | `06-closing-durable-practice.png`  | Calm closing frame and final statement             |
+| 0:08–0:19 | `02-missed-action-calm-return.png` | Missed behaviour contrasted with a clean return    |
+| 0:19–0:26 | `03-review-questions-notebook.png` | Space for the three self-review questions          |
+| 0:26–0:31 | `04-phone-away-book-ready.png`     | Removing one negotiation from the environment      |
+| 0:31–0:39 | `05-shoes-ready-by-door.png`       | Preparing a small, useful action in advance        |
+| 0:39–0:44 | `06-closing-durable-practice.png`  | Calm closing frame and final statement             |
 
 ## Shared generation prompt
 
