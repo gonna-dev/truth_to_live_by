@@ -11,8 +11,10 @@ if (status.preview) issues.push('A preview build may not be released.');
 if (!config.completedPreviewApprovedForPublication || env.RELEASE_APPROVED !== 'true')
   issues.push('Owner approval of completed preview is required.');
 if (env.EDITORIAL_APPROVED !== 'true') issues.push('Final editorial approval is required.');
-if (!config.privacyNoticeApproved || env.PUBLIC_PRIVACY_READY !== 'true')
+if (!config.privacyNoticeApproved)
   issues.push('Final privacy notice and controller details must be approved.');
+else if (env.PUBLIC_PRIVACY_READY !== 'true')
+  issues.push('Enable the approved privacy notice in the production environment.');
 if (
   /Preview notice — not a final launch notice/.test(readFileSync('src/pages/privacy.astro', 'utf8'))
 )
@@ -35,11 +37,13 @@ if (content.articles.length < config.minimumArticles)
   issues.push(
     `Need ${config.minimumArticles} approved articles; public build has ${content.articles.length}.`,
   );
-if (
-  content.videos.filter((v) => v.verified && !v.draft && !v.placeholder).length <
-  config.minimumVideos
-)
-  issues.push(`Need ${config.minimumVideos} verified published video entries.`);
+const verifiedVideoCount = content.videos.filter(
+  (video) => video.verified && !video.draft && !video.placeholder,
+).length;
+if (verifiedVideoCount < config.minimumVideos)
+  issues.push(
+    `Need ${config.minimumVideos} verified published video entries; public build has ${verifiedVideoCount}.`,
+  );
 if (!status.indexable) issues.push('Production output must be indexable after approval.');
 if (issues.length) {
   console.error('RELEASE BLOCKED\n' + issues.map((issue) => `- ${issue}`).join('\n'));
