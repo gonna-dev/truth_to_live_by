@@ -10,10 +10,10 @@ tags: [sleep, bedtime procrastination, attention, rest]
 hero_image: ../../assets/attention.svg
 hero_alt: An original illustration of an open book, a cup and an olive branch beside a sunlit window.
 featured: false
-draft: true
-placeholder: true
+draft: false
+placeholder: false
 takeaway: Do not ask bedtime to defeat an entire day of unmet needs. Identify what the late night is protecting, make room for some of it earlier, and give sleep a specific beginning rather than a vague intention.
-evidence_note: This article concerns voluntary delay of bedtime, not insomnia, shift work, caregiving, chronic pain, sleep disorders or circumstances in which a person lacks control over sleep opportunity. Much of the bedtime-procrastination literature is observational and some recent studies use student samples, so causal and universal claims are avoided. This is general information, not medical advice. Final editorial and source review is pending.
+evidence_note: This article concerns voluntary delay of bedtime, not insomnia, shift work, caregiving, chronic pain, sleep disorders or circumstances in which a person lacks control over sleep opportunity. Much of the bedtime-procrastination literature is observational and some recent studies use student samples, so causal and universal claims are avoided. This is general information, not medical advice.
 related_articles: [what-deserves-your-attention, a-small-promise-you-can-keep]
 sources:
   - title: Bedtime procrastination — introducing a new area of procrastination

@@ -10,10 +10,10 @@ tags: [discipline, habits, motivation, self-compassion]
 hero_image: ../../assets/ritual.svg
 hero_alt: An original illustration of a notebook, a pencil and a warm cup on a table in morning light.
 featured: false
-draft: true
-placeholder: true
+draft: false
+placeholder: false
 takeaway: Make the behaviour easier to repeat and the return easier to begin. A standard can be firm without turning every failure into a verdict on your character.
-evidence_note: This draft distinguishes findings about habits, planning, motivation and self-compassion from the broader editorial interpretation offered here. The cited studies report average associations or experimental effects in particular populations; they do not establish one discipline method that works for every person or circumstance. Final editorial and source review is pending.
+evidence_note: This article distinguishes findings about habits, planning, motivation and self-compassion from the broader editorial interpretation offered here. The cited studies report average associations or experimental effects in particular populations; they do not establish one discipline method that works for every person or circumstance.
 related_articles: [a-small-promise-you-can-keep, what-deserves-your-attention]
 sources:
   - title: Self-compassion increases self-improvement motivation

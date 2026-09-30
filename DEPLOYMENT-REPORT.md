@@ -1,6 +1,14 @@
 # Deployment report
 
-Updated 27 September 2026. Status: local review preview; not approved for publication.
+Updated 30 September 2026. Status: local review preview; not approved for publication.
+
+## 30 September — first researched article batch approved
+
+The owner requested publication of the three recent researched articles: “Discipline Is Not Self-Punishment,” “Why Adult Friendships Need Rituals, Not Just Good Intentions,” and “Why You Stay Up Even When You’re Exhausted.” Their cited records were checked against publisher, journal, PubMed, PMC and professional-body sources. The published copy preserves the stated limitations around experimental, observational, self-reported, student-sample and health evidence.
+
+All three entries are now `draft: false` and `placeholder: false`. The production library contains three approved articles, satisfying the configured article minimum. Production routes, search data, pillar pages, related-content resolution and sitemap include them. The local MP4 files were not added to this article-only change; one verified video remains public and two additional verified video entries are still required.
+
+Verification passed: 0 Astro/type errors, warnings or hints; 9 unit tests; production build and static checks across 16 pages; preview build and static checks across 20 pages; and all 50 desktop/mobile browser tests. Updated Home and Ideas screenshots were inspected at desktop and mobile sizes.
 
 ## 27 September — first researched article batch drafted
 
@@ -24,7 +32,7 @@ The owner supplied the controller identity Mark Walsh. The website now contains 
 
 The owner approved a 12-month retention period for operational publishing logs. OAuth credentials are retained only while authorisation remains active and are deleted when replaced, revoked or no longer required. Approved requests to delete locally stored publishing records are completed within 30 days unless a legal obligation requires retention; privacy requests are handled within the legally applicable period through the dedicated brand contact route.
 
-The owner expressly approved the final Privacy Notice and Terms on 26 September 2026, including deletion of contact correspondence within 24 months after the last substantive contact, subject to continuing relationships and legal obligations. The disclosures name the individual controller and contact route; describe Cloudflare hosting, click-to-load YouTube playback, beehiiv newsletter processing, Gmail correspondence and the local Google OAuth publisher; and cover purposes, legal bases, retention, international-transfer safeguards and individual rights. The corresponding Privacy and Terms approval flags are true. Per the owner’s instruction, this legal approval does not complete the overall launch milestone: three approved articles and two additional verified video entries are still required.
+The owner expressly approved the final Privacy Notice and Terms on 26 September 2026, including deletion of contact correspondence within 24 months after the last substantive contact, subject to continuing relationships and legal obligations. The disclosures name the individual controller and contact route; describe Cloudflare hosting, click-to-load YouTube playback, beehiiv newsletter processing, Gmail correspondence and the local Google OAuth publisher; and cover purposes, legal bases, retention, international-transfer safeguards and individual rights. The corresponding Privacy and Terms approval flags are true. Those legal approvals do not complete the overall launch milestone. The three-article minimum was subsequently met on 30 September; two additional verified video entries are still required.
 
 Website verification passed: 0 Astro/type errors, warnings or hints; 9 unit tests; production build and static checks across 13 pages; preview build and static checks across 17 pages; and all 50 desktop/mobile browser tests. The publishing, Privacy and Terms disclosures have automated content, accessibility and overflow checks. Full-page desktop and mobile screenshots were generated and inspected; the pages retain the approved editorial presentation and remain readable at both sizes.
 
@@ -89,6 +97,6 @@ Rendering and saved settings are verified. With explicit owner authorization, on
 
 ## Outstanding launch requirements
 
-Owner review of completed preview; at least three approved substantive articles; two additional verified video entries; dedicated brand mailbox delivery/spam testing; remaining end-to-end beehiiv verification; then explicit public publication approval. The owner specifically instructed that the overall milestone must remain incomplete until the article and video minimums are met. Do not lower release checks to bypass these requirements.
+Owner review of completed preview; two additional verified video entries; dedicated brand mailbox delivery/spam testing; remaining end-to-end beehiiv verification; then explicit public publication approval. The three-article minimum is met. Per the owner’s instruction, the overall milestone remains incomplete until the two additional verified video entries are added. Do not lower release checks to bypass these requirements.
 
 No feature branch has been pushed, PR opened, Cloudflare Pages project created, domain connected, or public preview published. Local feature branch is `codex/website-v1`; existing repository history is preserved. Deployment commands and rollback plan are in DEPLOYMENT.md. Maintenance guidance is in CONTENT.md and ARCHITECTURE.md. No new paid services were introduced; account pricing/entitlements must be checked before launch.

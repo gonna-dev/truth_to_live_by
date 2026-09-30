@@ -10,10 +10,10 @@ tags: [friendship, connection, rituals, social support]
 hero_image: ../../assets/connection.svg
 hero_alt: An original illustration of an empty bench beneath a tree, overlooking a quiet green landscape.
 featured: false
-draft: true
-placeholder: true
+draft: false
+placeholder: false
 takeaway: Do not wait for friendship to maintain itself. Give one valued relationship a recurring, flexible place in your life, and make returning more important than performing perfect consistency.
-evidence_note: Friendship research is less extensive than research on romantic and family relationships, and much of the cited evidence is observational, self-reported or based on student samples. The article therefore treats rituals as a practical interpretation of findings about interaction and maintenance, not as a proven formula for closeness. Final editorial and source review is pending.
+evidence_note: Friendship research is less extensive than research on romantic and family relationships, and much of the cited evidence is observational, self-reported or based on student samples. The article therefore treats rituals as a practical interpretation of findings about interaction and maintenance, not as a proven formula for closeness.
 related_articles: [the-space-between-listening-and-replying, what-deserves-your-attention]
 sources:
   - title: Friendship maintenance — an analysis of individual and dyad behaviors

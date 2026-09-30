@@ -1,5 +1,12 @@
 # Changelog
 
+## 30 September 2026 — First researched articles published
+
+- Approved and published three researched articles, one for each editorial pillar.
+- Verified the cited study records and retained evidence limitations in each article.
+- Added the articles to production Ideas, search, pillar pages, related content and sitemap without changing application components.
+- Kept local video files outside this article-only publication change.
+
 ## 26 September 2026 — OAuth publishing disclosure
 
 - Added a public-facing application description for the owner-operated social publisher and its private-only YouTube workflow.
