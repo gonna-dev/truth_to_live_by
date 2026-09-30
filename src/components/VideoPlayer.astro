@@ -19,6 +19,9 @@ if (!youtubeEmbed(data.youtube_url)) throw new Error(`Invalid player URL for ${v
     </button>
   </div>
   <div class:list={['video-stage', { 'video-stage-short': data.format === 'short' }]}>
+    <div class="video-loading" role="status" hidden>
+      Connecting securely to YouTube…
+    </div>
     <div class="video-poster">
       <Image
         src={data.thumbnail}
@@ -70,6 +73,7 @@ if (!youtubeEmbed(data.youtube_url)) throw new Error(`Invalid player URL for ${v
 
     closePlayer(restoreFocus = false) {
       this.querySelector('iframe')?.remove();
+      this.querySelector<HTMLElement>('.video-loading')!.hidden = true;
       this.querySelector<HTMLElement>('.video-poster')!.hidden = false;
       this.querySelector<HTMLElement>('.video-player-toolbar')!.hidden = true;
       this.querySelector<HTMLElement>('.video-status')!.textContent = '';
@@ -88,11 +92,22 @@ if (!youtubeEmbed(data.youtube_url)) throw new Error(`Invalid player URL for ${v
       // YouTube requires a referrer to identify its embedding website.
       frame.referrerPolicy = 'strict-origin-when-cross-origin';
       frame.src = src;
+      const loading = this.querySelector<HTMLElement>('.video-loading')!;
+      const status = this.querySelector<HTMLElement>('.video-status')!;
+      loading.hidden = false;
+      frame.addEventListener(
+        'load',
+        () => {
+          loading.hidden = true;
+          status.textContent =
+            'YouTube player loaded. Playback should begin automatically; if it does not, press Play in the player or use Watch on YouTube below.';
+        },
+        { once: true },
+      );
       this.querySelector<HTMLElement>('.video-poster')!.hidden = true;
       this.querySelector('.video-stage')!.append(frame);
       this.querySelector<HTMLElement>('.video-player-toolbar')!.hidden = false;
-      this.querySelector<HTMLElement>('.video-status')!.textContent =
-        'Player opened. If playback does not start, use Play in the player. If unavailable, try Watch on YouTube below.';
+      status.textContent = 'Connecting securely to YouTube…';
       this.querySelector<HTMLButtonElement>('.video-close')!.focus();
     }
   }

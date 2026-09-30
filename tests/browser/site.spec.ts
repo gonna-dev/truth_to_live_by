@@ -10,6 +10,7 @@ const pages = [
   '/watch/',
   '/about/',
   '/join/',
+  '/join/confirmed/',
   '/contact/',
   '/privacy/',
   '/terms/',

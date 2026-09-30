@@ -2,6 +2,14 @@
 
 Updated 30 September 2026. Status: local review preview; not approved for publication.
 
+## 30 September — preview playback and newsletter-confirmation review
+
+During owner review, the lazy YouTube iframe initially appeared as a black rectangle while the provider connected. Both public Shorts were then replayed successfully in the connected browser, with controls, captions and elapsed playback visible. The website now keeps an accessible “Connecting securely to YouTube…” layer over that interval and replaces it with explicit loaded/fallback guidance after the iframe load event. The iframe remains absent until Play is pressed, continues to use `youtube-nocookie.com`, and retains the direct Watch on YouTube link.
+
+The beehiiv confirmation test succeeded technically but returned the subscriber to the publication homepage, which contains only the signup form and therefore gave no visible confirmation. This is beehiiv's default double-opt-in destination when no Opt-in Redirect URL is configured. The website now provides a no-index `/join/confirmed/` page with a clear success message, inbox guidance, unsubscribe information and a route back to the Ideas library. After the public site is available, beehiiv's Opt-in Redirect URL must be set to `https://truthtoliveby.fyi/join/confirmed/` and the full double-opt-in flow must be retested before `newsletterVerified` is enabled.
+
+The preview build and static checks passed across 21 pages. The focused video suite passed all 10 desktop/mobile tests, and the complete browser suite passed all 52 tests, including accessibility and overflow checks for the new confirmation page. Completed-preview and editorial approval remain pending while this remediation is reviewed.
+
 ## 30 September — contact mailbox delivery and spam handling verified
 
 The owner completed an end-to-end test of the public contact address, `truthtoliveby.fyi@gmail.com`. A message sent from an owner-controlled external mailbox arrived in the contact mailbox Inbox rather than Spam. A reply containing the agreed verification phrase was then sent from the contact mailbox and arrived back in the sender's Inbox. This verifies inbound delivery, outbound replies, basic sender identity and spam placement in both directions for the tested route.

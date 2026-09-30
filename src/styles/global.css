@@ -867,6 +867,13 @@
   .prose-page li {
     margin-bottom: 12px;
   }
+  .confirmation-page {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .confirmation-page .empty-state {
+    margin-inline: auto;
+  }
   .about-statement {
     padding: 54px 0;
     border-block: 1px solid var(--rule);
@@ -926,6 +933,22 @@
     width: 100%;
     height: 100%;
     border: 0;
+  }
+  .video-loading {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: var(--ink);
+    color: var(--paper);
+    font: 500 14px/1.5 var(--sans);
+    text-align: center;
+    pointer-events: none;
+  }
+  .video-loading[hidden] {
+    display: none;
   }
   .video-poster img {
     object-fit: contain;

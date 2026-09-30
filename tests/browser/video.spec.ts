@@ -39,6 +39,8 @@ for (const route of ['/', '/watch/']) {
       `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`,
     );
     await expect(frame).toHaveAttribute('title', `YouTube player: ${videoTitle}`);
+    await expect(player.locator('.video-loading')).toBeHidden();
+    await expect(player.getByRole('status').last()).toContainText('YouTube player loaded');
     await expect
       .poll(() => external.some((url) => url.startsWith('https://www.youtube-nocookie.com/embed/')))
       .toBe(true);
