@@ -9,7 +9,7 @@ try {
   for (const [name, route] of [
     ['home', '/'],
     ['watch', '/watch/'],
-    ['article', '/ideas/what-deserves-your-attention/'],
+    ['article', '/ideas/discipline-is-not-self-punishment/'],
     ['join', '/join/'],
   ]) {
     const report = await lighthouse(`http://127.0.0.1:4322${route}`, {

@@ -14,7 +14,7 @@ const pages = [
   '/privacy/',
   '/terms/',
   '/publishing/',
-  '/ideas/what-deserves-your-attention/',
+  '/ideas/discipline-is-not-self-punishment/',
 ];
 for (const route of pages) {
   test(`${route} loads without accessibility or layout failures`, async ({ page }) => {
@@ -37,9 +37,11 @@ for (const route of pages) {
 test('search covers article body, handles empty results and clears', async ({ page }) => {
   await page.goto('/ideas/');
   const input = page.getByRole('searchbox', { name: 'Find an idea' });
-  await input.fill('administration');
+  await input.fill('punishment');
   await expect(page.locator('[data-result-count]')).not.toHaveText('0 ideas found');
-  await expect(page.getByRole('heading', { name: 'What deserves your attention?' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Discipline is not self-punishment' }),
+  ).toBeVisible();
   await input.fill('nonsense-no-match');
   await expect(page.getByRole('heading', { name: 'No ideas found, yet.' })).toBeVisible();
   await page.getByRole('button', { name: 'Clear search' }).click();
@@ -48,7 +50,7 @@ test('search covers article body, handles empty results and clears', async ({ pa
   await page.getByRole('link', { name: 'Relationships', exact: true }).first().click();
   await expect(page).toHaveURL(/\/ideas\/topic\/relationships\//);
   await expect(
-    page.getByRole('heading', { name: 'The space between listening and replying' }),
+    page.getByRole('heading', { name: 'Why adult friendships need rituals' }),
   ).toBeVisible();
 });
 test('newsletter never pretends to accept email while unconfigured', async ({ page }) => {
@@ -156,7 +158,7 @@ test('capture home, library and essay for visual review', async ({ page }, testI
   for (const [name, route] of [
     ['home', '/'],
     ['ideas', '/ideas/'],
-    ['article', '/ideas/what-deserves-your-attention/'],
+    ['article', '/ideas/discipline-is-not-self-punishment/'],
     ['publishing', '/publishing/'],
     ['privacy', '/privacy/'],
     ['terms', '/terms/'],
@@ -176,7 +178,7 @@ test('content remains navigable without JavaScript', async ({ browser }) => {
   await expect(page.getByRole('searchbox')).not.toBeVisible();
   await page.getByRole('link', { name: 'Relationships', exact: true }).first().click();
   await expect(
-    page.getByRole('heading', { name: 'The space between listening and replying' }),
+    page.getByRole('heading', { name: 'Why adult friendships need rituals' }),
   ).toBeVisible();
   await context.close();
 });

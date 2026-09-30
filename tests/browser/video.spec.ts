@@ -21,6 +21,11 @@ for (const route of ['/', '/watch/']) {
       'https://www.youtube-nocookie.com',
     );
     const player = page.locator('ttlb-video').first();
+    const videoUrl = await player.getAttribute('data-video-url');
+    const videoTitle = await player.getAttribute('data-title');
+    expect(videoUrl).toBeTruthy();
+    expect(videoTitle).toBeTruthy();
+    const videoId = new URL(videoUrl!).pathname.split('/').filter(Boolean).at(-1);
     const play = player.getByRole('button', { name: /^Play / });
     await play.scrollIntoViewIfNeeded();
     await expect(play).toBeVisible();
@@ -31,9 +36,9 @@ for (const route of ['/', '/watch/']) {
     const frame = player.locator('iframe');
     await expect(frame).toHaveAttribute(
       'src',
-      'https://www.youtube-nocookie.com/embed/7Gx-8crjg58?autoplay=1&playsinline=1&rel=0',
+      `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`,
     );
-    await expect(frame).toHaveAttribute('title', /How to Stay Calm/);
+    await expect(frame).toHaveAttribute('title', `YouTube player: ${videoTitle}`);
     await expect
       .poll(() => external.some((url) => url.startsWith('https://www.youtube-nocookie.com/embed/')))
       .toBe(true);
