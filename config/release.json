@@ -6,7 +6,7 @@
   "termsApproved": true,
   "newsletterVerified": false,
   "temporaryNewsletterPlaceholderApproved": false,
-  "contactVerified": false,
+  "contactVerified": true,
   "minimumArticles": 3,
   "minimumVideos": 3,
   "completedPreviewApprovedForPublication": false

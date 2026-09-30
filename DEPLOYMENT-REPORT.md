@@ -2,6 +2,14 @@
 
 Updated 30 September 2026. Status: local review preview; not approved for publication.
 
+## 30 September — contact mailbox delivery and spam handling verified
+
+The owner completed an end-to-end test of the public contact address, `truthtoliveby.fyi@gmail.com`. A message sent from an owner-controlled external mailbox arrived in the contact mailbox Inbox rather than Spam. A reply containing the agreed verification phrase was then sent from the contact mailbox and arrived back in the sender's Inbox. This verifies inbound delivery, outbound replies, basic sender identity and spam placement in both directions for the tested route.
+
+The `contactVerified` release flag is now true. This verification does not approve the completed preview, enable newsletter collection or publish the website.
+
+Post-update validation passed: Astro reported 0 errors and 0 warnings; all 9 unit tests passed; the production build generated 16 pages; and the static checks passed across all 16 pages. With the verified contact address supplied through `PUBLIC_CONTACT_EMAIL`, `release:check` no longer reports the contact-mailbox blocker. The release remains intentionally blocked by completed-preview and editorial approval, production privacy configuration, beehiiv verification, the third published video and production indexability.
+
 ## 30 September — first researched article batch approved
 
 The owner requested publication of the three recent researched articles: “Discipline Is Not Self-Punishment,” “Why Adult Friendships Need Rituals, Not Just Good Intentions,” and “Why You Stay Up Even When You’re Exhausted.” Their cited records were checked against publisher, journal, PubMed, PMC and professional-body sources. The published copy preserves the stated limitations around experimental, observational, self-reported, student-sample and health evidence.
@@ -97,6 +105,6 @@ Rendering and saved settings are verified. With explicit owner authorization, on
 
 ## Outstanding launch requirements
 
-Owner review of completed preview; two additional verified video entries; dedicated brand mailbox delivery/spam testing; remaining end-to-end beehiiv verification; then explicit public publication approval. The three-article minimum is met. Per the owner’s instruction, the overall milestone remains incomplete until the two additional verified video entries are added. Do not lower release checks to bypass these requirements.
+Owner review of the completed preview; the remaining verified public video requirement; remaining end-to-end beehiiv verification; production privacy configuration; search-engine indexability approval; then explicit public publication approval. The three-article minimum is met, and contact-mail delivery and spam placement are verified. Do not lower release checks to bypass the remaining requirements.
 
-No feature branch has been pushed, PR opened, Cloudflare Pages project created, domain connected, or public preview published. Local feature branch is `codex/website-v1`; existing repository history is preserved. Deployment commands and rollback plan are in DEPLOYMENT.md. Maintenance guidance is in CONTENT.md and ARCHITECTURE.md. No new paid services were introduced; account pricing/entitlements must be checked before launch.
+Feature branch `codex/website-v1` is pushed. No PR has been opened, Cloudflare Pages project created, domain connected or public preview published. Existing repository history is preserved. Deployment commands and rollback plan are in DEPLOYMENT.md. Maintenance guidance is in CONTENT.md and ARCHITECTURE.md. No new paid services were introduced; account pricing/entitlements must be checked before launch.
