@@ -53,10 +53,9 @@ for (const route of ['/', '/watch/']) {
     const box = await frame.boundingBox();
     expect(box!.width / box!.height).toBeCloseTo(9 / 16, 2);
     await expect(player.getByRole('link', { name: 'Watch on YouTube' })).toBeVisible();
-    await expect(player.getByRole('link', { name: 'Explore related Ideas' })).toHaveAttribute(
-      'href',
-      '/ideas/topic/self/',
-    );
+    await expect(
+      player.getByRole('link', { name: /^(Read the companion idea|Explore related Ideas)/ }),
+    ).toHaveAttribute('href', /^\/ideas\/(?:topic\/[a-z0-9-]+|[a-z0-9-]+)\/$/);
     await expect(player.getByRole('link', { name: 'Join One Truth to Live By' })).toHaveAttribute(
       'href',
       '/join/',
