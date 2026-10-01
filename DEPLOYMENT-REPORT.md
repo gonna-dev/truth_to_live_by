@@ -1,6 +1,12 @@
 # Deployment report
 
-Updated 30 September 2026. Status: local review preview; not approved for publication.
+Updated 1 October 2026. Status: completed preview approved for staged publication; newsletter collection remains disabled pending live verification.
+
+## 1 October — staged publication approved
+
+The owner approved the completed preview and a staged publication sequence with newsletter collection temporarily disabled. The release configuration now records `completedPreviewApprovedForPublication: true` and `temporaryNewsletterPlaceholderApproved: true`; `newsletterVerified` remains false. The beehiiv embedded form is configured to show “Success! Now check your email to confirm your subscription.” and to require double opt-in, while publication-level double opt-in remains disabled. The confirmation email is valid, but beehiiv has no Opt-in Redirect URL configured and therefore returns confirmed subscribers to the publication homepage.
+
+The intended redirect target, `https://truthtoliveby.fyi/join/confirmed/`, could not be reached because the domain has no resolving DNS record. It must not be saved in beehiiv until the website is publicly reachable. The production release check otherwise passed type checking, all 9 unit tests, a 17-page production build and static checks; it remains blocked only by the third verified video, which is scheduled for 1 October 2026 at 11:00 UTC and is still a draft entry until public verification.
 
 ## 30 September — preview playback and newsletter-confirmation review
 
@@ -116,3 +122,6 @@ Rendering and saved settings are verified. With explicit owner authorization, on
 Owner review of the completed preview; the remaining verified public video requirement; remaining end-to-end beehiiv verification; production privacy configuration; search-engine indexability approval; then explicit public publication approval. The three-article minimum is met, and contact-mail delivery and spam placement are verified. Do not lower release checks to bypass the remaining requirements.
 
 Feature branch `codex/website-v1` is pushed. No PR has been opened, Cloudflare Pages project created, domain connected or public preview published. Existing repository history is preserved. Deployment commands and rollback plan are in DEPLOYMENT.md. Maintenance guidance is in CONTENT.md and ARCHITECTURE.md. No new paid services were introduced; account pricing/entitlements must be checked before launch.
+
+
+
