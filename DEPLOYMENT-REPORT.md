@@ -2,6 +2,14 @@
 
 Updated 1 October 2026. Status: completed preview approved for staged publication; newsletter collection remains disabled pending live verification.
 
+## 1 October — post-merge release safeguards
+
+Pull request #1 was merged into `main` at commit `6b23411`. A post-merge review identified three release-safety gaps, which are corrected on the follow-up branch `codex/release-safety-fixes`: an enabled but unverified beehiiv form can no longer pass by relying on the temporary disabled-newsletter approval; the Privacy Notice now accurately describes the lazy beehiiv iframe connection that can occur before submission; and a draft or scheduled video selected for the preview homepage is visibly marked “Scheduled preview video.”
+
+Validation passed after the repairs: Astro reported 0 errors, warnings or hints; all 9 unit tests passed; the production build generated 17 pages; the preview build generated 21 pages; static checks passed for both builds; and all 54 desktop/mobile browser tests passed from a clean local server. The browser suite covers accessibility, layout, keyboard navigation, disabled newsletter collection, the new scheduled-video marker, the revised privacy disclosure, click-to-load YouTube behavior and Content Security Policy enforcement.
+
+The release gate was also tested in both newsletter states. With newsletter collection disabled under the approved temporary placeholder, the only remaining blocker is the third verified published video. With newsletter collection enabled while `newsletterVerified` is false, the gate adds the required beehiiv end-to-end verification blocker even though the temporary placeholder approval exists. No deployment has been performed by these repairs.
+
 ## 1 October — staged publication approved
 
 The owner approved the completed preview and a staged publication sequence with newsletter collection temporarily disabled. The release configuration now records `completedPreviewApprovedForPublication: true` and `temporaryNewsletterPlaceholderApproved: true`; `newsletterVerified` remains false. The beehiiv embedded form is configured to show “Success! Now check your email to confirm your subscription.” and to require double opt-in, while publication-level double opt-in remains disabled. The confirmation email is valid, but beehiiv has no Opt-in Redirect URL configured and therefore returns confirmed subscribers to the publication homepage.
@@ -122,6 +130,5 @@ Rendering and saved settings are verified. With explicit owner authorization, on
 Owner review of the completed preview; the remaining verified public video requirement; remaining end-to-end beehiiv verification; production privacy configuration; search-engine indexability approval; then explicit public publication approval. The three-article minimum is met, and contact-mail delivery and spam placement are verified. Do not lower release checks to bypass the remaining requirements.
 
 Feature branch `codex/website-v1` is pushed. No PR has been opened, Cloudflare Pages project created, domain connected or public preview published. Existing repository history is preserved. Deployment commands and rollback plan are in DEPLOYMENT.md. Maintenance guidance is in CONTENT.md and ARCHITECTURE.md. No new paid services were introduced; account pricing/entitlements must be checked before launch.
-
 
 
