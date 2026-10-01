@@ -1,6 +1,16 @@
 # Deployment report
 
-Updated 1 October 2026. Status: the revised Privacy Notice and completed preview are approved; the production release gate passes with newsletter collection disabled under the approved temporary placeholder. No deployment has been performed.
+Updated 1 October 2026. Status: the website is live on Cloudflare Pages at `https://truthtoliveby.fyi/`; the beehiiv double-opt-in flow and confirmation redirect are verified. Newsletter collection is ready to be enabled after the final production change is reviewed and deployed.
+
+## 1 October — live domain and newsletter confirmation verified
+
+The Git-connected Cloudflare Pages project `truth-to-live-by-site` is configured from `gonna-dev/truth_to_live_by`, production branch `main`, with build command `npm run build:cloudflare`, output directory `dist`, Node 24 and preview branch deployments disabled. The reviewed production output was deployed from merge commit `fc1b63b`. The apex domain `truthtoliveby.fyi` is active with HTTPS. Live checks returned 200 for the homepage, Privacy Notice, confirmation page, robots and sitemap; an unknown route returned 404. Canonical URLs use the apex domain, the security headers are present, and newsletter collection remains disabled on the deployed version.
+
+The beehiiv Opt-in Redirect URL is `https://truthtoliveby.fyi/join/confirmed/`, and publication-level double opt-in is enabled. A first fresh subscription confirmed email delivery and activation but exposed that the publication-level setting was not yet active because confirmation returned to the beehiiv homepage. After enabling and saving the publication-level setting, a second fresh subscription completed the full sequence: public form submission, confirmation-email delivery, explicit confirmation and redirect to the website confirmation page. No test address or confirmation credential is stored in the repository. `newsletterVerified` is now true.
+
+beehiiv appends a short-lived confirmation credential to the redirect query string. The confirmation page now removes that parameter from the visible address and browser history immediately after load while preserving unrelated query parameters. This reduces accidental disclosure through copied URLs or later same-tab navigation; the page remains noindex. The production-shaped embedded form loaded with a visible email field and submit control in both its iframe and fallback route.
+
+The complete release suite passed with newsletter collection enabled: clean dependency installation; 0 Astro errors, warnings or hints; all 9 unit tests; a 17-page production build and a 21-page preview build with static checks; the production release gate; and all 56 desktop/mobile browser tests in both production and preview. Preview continues to omit the form. Production tests cover the approved beehiiv iframe, accessibility and layout, while the YouTube tests still verify that no YouTube connection occurs before Play. Newsletter collection will be enabled in the production environment only after this reviewed change is merged.
 
 ## 1 October — consolidated release review approved
 

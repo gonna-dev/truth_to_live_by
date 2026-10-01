@@ -28,8 +28,22 @@ import Base from '../../layouts/Base.astro';
           Promotions or Spam and add the sender to your contacts.
         </p>
         <p>You can unsubscribe at any time using the link included in every newsletter.</p>
-        <a class="button" href="/ideas/">Explore the latest Ideas</a>
+        <a class="button" href="/ideas/">
+          Explore the latest Ideas
+        </a>
       </div>
     </div>
   </div>
 </Base>
+
+<script>
+  const confirmedUrl = new URL(window.location.href);
+  if (confirmedUrl.searchParams.has('jwt_token')) {
+    confirmedUrl.searchParams.delete('jwt_token');
+    history.replaceState(
+      null,
+      '',
+      `${confirmedUrl.pathname}${confirmedUrl.search}${confirmedUrl.hash}`,
+    );
+  }
+</script>

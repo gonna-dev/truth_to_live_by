@@ -5,9 +5,10 @@ for (const route of ['/', '/watch/']) {
   test(`${route} video loads only on Play, preserves CTAs and closes accessibly`, async ({
     page,
   }, testInfo) => {
-    const external: string[] = [];
+    const youtubeRequests: string[] = [];
     page.on('request', (request) => {
-      if (new URL(request.url()).origin !== 'http://127.0.0.1:4322') external.push(request.url());
+      if (new URL(request.url()).hostname === 'www.youtube-nocookie.com')
+        youtubeRequests.push(request.url());
     });
     // Deterministic integration boundary; live provider is inspected separately.
     await page.route('https://www.youtube-nocookie.com/**', (r) =>
@@ -30,7 +31,7 @@ for (const route of ['/', '/watch/']) {
     await play.scrollIntoViewIfNeeded();
     await expect(play).toBeVisible();
     await expect(player.locator('iframe')).toHaveCount(0);
-    expect(external).toEqual([]);
+    expect(youtubeRequests).toEqual([]);
     await play.focus();
     await page.keyboard.press('Enter');
     const frame = player.locator('iframe');
@@ -42,7 +43,9 @@ for (const route of ['/', '/watch/']) {
     await expect(player.locator('.video-loading')).toBeHidden();
     await expect(player.getByRole('status').last()).toContainText('YouTube player loaded');
     await expect
-      .poll(() => external.some((url) => url.startsWith('https://www.youtube-nocookie.com/embed/')))
+      .poll(() =>
+        youtubeRequests.some((url) => url.startsWith('https://www.youtube-nocookie.com/embed/')),
+      )
       .toBe(true);
     await expect(page).toHaveURL(`http://127.0.0.1:4322${route}`);
     await expect(player.getByRole('button', { name: 'Close video' })).toBeFocused();
