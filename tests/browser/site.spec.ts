@@ -67,7 +67,10 @@ test('newsletter never pretends to accept email while unconfigured', async ({ pa
 });
 test('preview labels an unpublished homepage video', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByText('Scheduled preview video', { exact: true })).toBeVisible();
+  const label = page.getByText('Scheduled preview video', { exact: true });
+  const selectedVideo = manifest.videos[0];
+  if (selectedVideo?.draft || selectedVideo?.placeholder) await expect(label).toBeVisible();
+  else await expect(label).toHaveCount(0);
 });
 test('dedicated contact and official social routes are exposed', async ({ page }) => {
   await page.goto('/contact/');
