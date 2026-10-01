@@ -1,6 +1,14 @@
 # Deployment report
 
-Updated 1 October 2026. Status: the revised Privacy Notice and completed preview require renewed owner approval; newsletter collection remains disabled pending live verification.
+Updated 1 October 2026. Status: the revised Privacy Notice and completed preview are approved; the production release gate passes with newsletter collection disabled under the approved temporary placeholder. No deployment has been performed.
+
+## 1 October — consolidated release review approved
+
+The owner instructed a final review of the revised Privacy Notice and completed preview. The notice identifies Mark Walsh as controller, accurately describes Cloudflare, click-to-load YouTube, beehiiv, Gmail and the private publishing application, and retains the approved 24-month contact-correspondence period. Desktop and mobile preview captures were reviewed for the homepage, Privacy, Terms, publishing, Ideas, article and video states. The layout remained readable and coherent, the newsletter was clearly presented as an external beehiiv route, and no unexpected disclosure or approval issue was found. `privacyNoticeApproved` and `completedPreviewApprovedForPublication` are restored to true on that evidence.
+
+The third verified public video from local commit `f1a0448` is included. The follow-up to pull request #11 now treats future publication dates as unpublished content in both the manifest-driven homepage label and the browser assertion. Seven compatible Dependabot updates are consolidated: Astro 7.3.5, Vite 8.3.1, Prettier 3.9.9, prettier-plugin-astro 1.1.0, and versions 7 of checkout, setup-node and upload-artifact. TypeScript 7 is excluded because a clean `npm ci` fails against `@astrojs/check` 0.9.10's declared TypeScript 5/6 peer range; TypeScript remains at 6.0.3 until the checker supports it.
+
+The complete local release suite passed after those changes: clean dependency installation; 0 Astro errors, warnings or hints; all 9 unit tests; a 17-page production build and static checks; a 21-page preview build and static checks; and all 54 desktop/mobile browser tests, including accessibility, keyboard navigation, responsive layout, privacy/CSP behavior, lazy YouTube playback and the future-date preview marker. Before restoring approval, `release:check` reported only the two expected approval blockers. With approved production values supplied as process-local environment variables and newsletter collection disabled, the final production release gate passes. Newsletter live-flow verification remains outstanding and `newsletterVerified` remains false. This approval and validation do not deploy the website.
 
 ## 1 October — post-merge review follow-up
 
@@ -15,6 +23,12 @@ Pull request #1 was merged into `main` at commit `6b23411`. A post-merge review 
 Validation passed after the repairs: Astro reported 0 errors, warnings or hints; all 9 unit tests passed; the production build generated 17 pages; the preview build generated 21 pages; static checks passed for both builds; and all 54 desktop/mobile browser tests passed from a clean local server. The browser suite covers accessibility, layout, keyboard navigation, disabled newsletter collection, the new scheduled-video marker, the revised privacy disclosure, click-to-load YouTube behavior and Content Security Policy enforcement.
 
 The release gate was also tested in both newsletter states. With newsletter collection disabled under the approved temporary placeholder, the only remaining blocker is the third verified published video. With newsletter collection enabled while `newsletterVerified` is false, the gate adds the required beehiiv end-to-end verification blocker even though the temporary placeholder approval exists. No deployment has been performed by these repairs.
+
+## 1 October — third public video verified
+
+The scheduled Short “Discipline Is Not Self-Punishment” was opened at its public YouTube URL after the scheduled 12:00 Dublin publication time. YouTube displayed the title, the @TruthtoLiveBy channel and an available player. Its existing verified content entry is now published in the website library. The production content minimum is three verified videos. Newsletter collection remains disabled pending live verification; no deployment or domain change was made by this content update.
+
+Validation passed with 0 Astro diagnostics, 9 unit tests, a 17-page production build and static checks. The 21-page preview build and static checks passed, as did all 52 desktop/mobile browser tests; the test runner required its known Windows server-cleanup workaround after the tests passed. Screenshots of the player state were inspected. With the approved production values supplied as process-local environment variables, `build:release` and `release:check` passed. The build was not deployed.
 
 ## 1 October — staged publication approved
 

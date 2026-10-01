@@ -69,7 +69,12 @@ test('preview labels an unpublished homepage video', async ({ page }) => {
   await page.goto('/');
   const label = page.getByText('Scheduled preview video', { exact: true });
   const selectedVideo = manifest.videos[0];
-  if (selectedVideo?.draft || selectedVideo?.placeholder) await expect(label).toBeVisible();
+  const unpublished =
+    selectedVideo &&
+    (selectedVideo.draft ||
+      selectedVideo.placeholder ||
+      new Date(selectedVideo.publication_date) > new Date());
+  if (unpublished) await expect(label).toBeVisible();
   else await expect(label).toHaveCount(0);
 });
 test('dedicated contact and official social routes are exposed', async ({ page }) => {

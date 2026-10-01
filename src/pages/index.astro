@@ -4,6 +4,7 @@ import VideoPlayer from '../components/VideoPlayer.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import Newsletter from '../components/Newsletter.astro';
 import { library } from '../lib/content';
+import { isPublic } from '../lib/publication.mjs';
 import { brand } from '../config/brand';
 const { articles, pillars, videos } = await library();
 const selectedVideo = videos[0];
@@ -115,7 +116,7 @@ const pillarTitle = (id: string) => pillars.find((p) => p.id === id)?.data.title
       </div>
     )}
     <div>
-      {selectedVideo && (selectedVideo.data.draft || selectedVideo.data.placeholder) && (
+      {selectedVideo && !isPublic(selectedVideo) && (
         <span class="draft-label">Scheduled preview video</span>
       )}
       <span class="eyebrow">A DIFFERENT WAY IN</span>

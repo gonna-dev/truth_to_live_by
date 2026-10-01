@@ -17,6 +17,7 @@ export const GET: APIRoute = async () => {
         verified: v.data.verified,
         draft: v.data.draft,
         placeholder: v.data.placeholder,
+        publication_date: v.data.publication_date,
       })),
     }),
     { headers: { 'Content-Type': 'application/json' } },
