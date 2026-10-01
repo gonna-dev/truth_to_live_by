@@ -16,6 +16,12 @@ Validation passed after the repairs: Astro reported 0 errors, warnings or hints;
 
 The release gate was also tested in both newsletter states. With newsletter collection disabled under the approved temporary placeholder, the only remaining blocker is the third verified published video. With newsletter collection enabled while `newsletterVerified` is false, the gate adds the required beehiiv end-to-end verification blocker even though the temporary placeholder approval exists. No deployment has been performed by these repairs.
 
+## 1 October — third public video verified
+
+The scheduled Short “Discipline Is Not Self-Punishment” was opened at its public YouTube URL after the scheduled 12:00 Dublin publication time. YouTube displayed the title, the @TruthtoLiveBy channel and an available player. Its existing verified content entry is now published in the website library. The production content minimum is three verified videos. Newsletter collection remains disabled pending live verification; no deployment or domain change was made by this content update.
+
+Validation passed with 0 Astro diagnostics, 9 unit tests, a 17-page production build and static checks. The 21-page preview build and static checks passed, as did all 52 desktop/mobile browser tests; the test runner required its known Windows server-cleanup workaround after the tests passed. Screenshots of the player state were inspected. With the approved production values supplied as process-local environment variables, `build:release` and `release:check` passed. The build was not deployed.
+
 ## 1 October — staged publication approved
 
 The owner approved the completed preview and a staged publication sequence with newsletter collection temporarily disabled. The release configuration now records `completedPreviewApprovedForPublication: true` and `temporaryNewsletterPlaceholderApproved: true`; `newsletterVerified` remains false. The beehiiv embedded form is configured to show “Success! Now check your email to confirm your subscription.” and to require double opt-in, while publication-level double opt-in remains disabled. The confirmation email is valid, but beehiiv has no Opt-in Redirect URL configured and therefore returns confirmed subscribers to the publication homepage.

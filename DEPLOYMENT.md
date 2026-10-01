@@ -2,7 +2,7 @@
 
 ## Current state
 
-Local branch: `codex/website-v1`, based on the repository's original `main` commit. Remote: https://github.com/gonna-dev/truth_to_live_by. No build commits have been pushed. No Cloudflare project, DNS change or public preview has been created. The owner must approve the completed preview before public publication.
+Local branch: `codex/website-v1`. Remote: https://github.com/gonna-dev/truth_to_live_by. The completed preview and a staged publication sequence with newsletter collection temporarily disabled were approved on 1 October 2026. Three articles and three verified public videos now satisfy the content minimums. The production release check passes when the approved production environment values are supplied. No Cloudflare project, DNS change or public preview has been created. See DEPLOYMENT-REPORT.md for the current evidence.
 
 Local preview: `npm run dev -- --port 4321`. Production-shaped preview for testing: `npm run build:preview` followed by `node scripts/serve-dist.mjs`, served only on 127.0.0.1:4322. Noindex is not access control.
 
