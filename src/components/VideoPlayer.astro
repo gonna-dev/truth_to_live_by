@@ -1,0 +1,115 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { articleUrl } from '../lib/content';
+import { youtubeEmbed } from '../lib/integrations.mjs';
+interface Props {
+  video: CollectionEntry<'videos'>;
+  relatedSlug?: string;
+}
+const { video, relatedSlug } = Astro.props;
+const { data } = video;
+if (!youtubeEmbed(data.youtube_url)) throw new Error(`Invalid player URL for ${video.id}`);
+---
+
+<ttlb-video class="video-player" data-video-url={data.youtube_url} data-title={data.title}>
+  <div class="video-player-toolbar" hidden>
+    <button type="button" class="video-close">
+      Close video
+    </button>
+  </div>
+  <div class:list={['video-stage', { 'video-stage-short': data.format === 'short' }]}>
+    <div class="video-loading" role="status" hidden>
+      Connecting securely to YouTube…
+    </div>
+    <div class="video-poster">
+      <Image
+        src={data.thumbnail}
+        alt={data.thumbnail_alt}
+        width={640}
+        format="webp"
+        loading="lazy"
+      />
+      <button
+        type="button"
+        class="video-play"
+        aria-label={`Play ${data.format === 'short' ? 'Short' : 'video'}: ${data.title}`}
+        hidden
+      >
+        <span class="play-icon" aria-hidden="true">
+          ▶
+        </span>
+        <span class="video-play-label">Play {data.format === 'short' ? 'Short' : 'video'}</span>
+      </button>
+    </div>
+  </div>
+  <p class="small video-privacy">Press Play to connect to YouTube’s privacy-enhanced player.</p>
+  <p class="small video-status" role="status"></p>
+  <div class="video-followups">
+    <a href={data.youtube_url}>Watch on YouTube ↗</a>
+    <a href={relatedSlug ? articleUrl(relatedSlug) : `/ideas/topic/${data.pillar.id}/`}>
+      {relatedSlug ? 'Read the companion idea →' : 'Explore related Ideas →'}
+    </a>
+    <a href="/join/">Join One Truth to Live By →</a>
+  </div>
+  <noscript>
+    <p class="small">Enable JavaScript to play here, or use Watch on YouTube.</p>
+  </noscript>
+</ttlb-video>
+
+<script>
+  import { youtubeEmbed } from '../lib/integrations.mjs';
+  class TTLBVideo extends HTMLElement {
+    connectedCallback() {
+      const play = this.querySelector<HTMLButtonElement>('.video-play')!;
+      const close = this.querySelector<HTMLButtonElement>('.video-close')!;
+      play.hidden = false;
+      play.onclick = () => this.openPlayer();
+      close.onclick = () => this.closePlayer(true);
+      this.onkeydown = (event) => {
+        if (event.key === 'Escape' && this.querySelector('iframe')) this.closePlayer(true);
+      };
+    }
+
+    closePlayer(restoreFocus = false) {
+      this.querySelector('iframe')?.remove();
+      this.querySelector<HTMLElement>('.video-loading')!.hidden = true;
+      this.querySelector<HTMLElement>('.video-poster')!.hidden = false;
+      this.querySelector<HTMLElement>('.video-player-toolbar')!.hidden = true;
+      this.querySelector<HTMLElement>('.video-status')!.textContent = '';
+      if (restoreFocus) this.querySelector<HTMLButtonElement>('.video-play')!.focus();
+    }
+
+    openPlayer() {
+      if (this.querySelector('iframe')) return;
+      const src = youtubeEmbed(this.dataset.videoUrl);
+      if (!src) return;
+      document.querySelectorAll<TTLBVideo>('ttlb-video').forEach((player) => player.closePlayer());
+      const frame = document.createElement('iframe');
+      frame.title = `YouTube player: ${this.dataset.title}`;
+      frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      frame.allowFullscreen = true;
+      // YouTube requires a referrer to identify its embedding website.
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.src = src;
+      const loading = this.querySelector<HTMLElement>('.video-loading')!;
+      const status = this.querySelector<HTMLElement>('.video-status')!;
+      loading.hidden = false;
+      frame.addEventListener(
+        'load',
+        () => {
+          loading.hidden = true;
+          status.textContent =
+            'YouTube player loaded. Playback should begin automatically; if it does not, press Play in the player or use Watch on YouTube below.';
+        },
+        { once: true },
+      );
+      this.querySelector<HTMLElement>('.video-poster')!.hidden = true;
+      this.querySelector('.video-stage')!.append(frame);
+      this.querySelector<HTMLElement>('.video-player-toolbar')!.hidden = false;
+      status.textContent = 'Connecting securely to YouTube…';
+      this.querySelector<HTMLButtonElement>('.video-close')!.focus();
+    }
+  }
+  if (!customElements.get('ttlb-video')) customElements.define('ttlb-video', TTLBVideo);
+</script>

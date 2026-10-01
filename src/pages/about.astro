@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { brand } from '../config/brand';
+---
+
+<Base
+  title="About"
+  description="An independent exploration of useful ideas. Discover what Truth to Live By stands for and how we approach evidence, interpretation and everyday life."
+>
+  <div class="wrap">
+    <header class="page-intro">
+      <span class="eyebrow">WHY WE’RE HERE</span>
+      <h1>
+        Understanding is a beginning.
+        <br />
+        <em>Living is the point.</em>
+      </h1>
+      <p class="lede">
+        Truth to Live By is an independent home for useful ideas from philosophy, psychology,
+        relationships and human performance.
+      </p>
+    </header>
+    <div class="prose-page">
+      <p>
+        We are interested in what an idea means when it leaves the page. How it changes a
+        conversation. What it asks of an ordinary afternoon. Whether it helps us see ourselves or
+        one another more clearly.
+      </p>
+      <div class="about-statement">
+        “What is the truth here that somebody could actually live by?”
+      </div>
+      <p>
+        That is our central editorial question. We approach it with curiosity, care and a
+        willingness to change our minds.
+      </p>
+      <h2>Good questions. Careful thinking.</h2>
+      <p>
+        A compelling story is not automatically good evidence. A respected thinker can be insightful
+        in one area and mistaken in another. We aim to distinguish what someone claims, what the
+        available evidence suggests, and our own practical interpretation.
+      </p>
+      <ol class="method-list">
+        <li>
+          <span>
+            <strong>Discover.</strong> Begin with an idea or question worth exploring.
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Investigate.</strong> Seek the source and understand what it actually says.
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Contextualise.</strong> Ask where the idea applies, and where it may not.
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Challenge.</strong> Look for limitations, counterarguments and uncertainty.
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Synthesise.</strong> Bring the useful parts into a clear, honest account.
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Apply.</strong> Offer a practical reflection without promising more than we
+            know.
+          </span>
+        </li>
+      </ol>
+      <h2>Three connected areas of life.</h2>
+      <p>
+        <a href="/ideas/topic/self/">Self</a> explores attention, identity, meaning and resilience.{' '}
+        <a href="/ideas/topic/relationships/">Relationships</a> considers communication, friendship
+        and human connection. <a href="/ideas/topic/living-well/">Living Well</a> looks at the
+        practices and conditions of everyday life.
+      </p>
+      <h2>One brand. Different ways in.</h2>
+      <p>
+        Our <a href={brand.youtube}>YouTube channel</a> explores ideas on screen.{' '}
+        <a href={brand.instagram}>Instagram</a>, <a href={brand.tiktok}>TikTok</a> and{' '}
+        <a href={brand.facebook}>Facebook</a> offer shorter encounters. This website gives those
+        ideas a lasting home, with room for context, references and further reading.{' '}
+        <a href="/join/">One Truth to Live By</a> will bring a considered idea into your inbox.
+      </p>
+      <h2>Transparent about how we work.</h2>
+      <p>
+        AI tools may assist research, production and presentation. Synthetic presenters, where used,
+        should be clearly identified; they are not real experts. The brand remains responsible for
+        its published material, and AI output is not a substitute for verifying a source.
+      </p>
+      <p>
+        Health and science coverage should make uncertainty visible and link to appropriate
+        evidence. Practical interpretations are not individual medical, psychological, legal or
+        financial advice.
+      </p>
+      <h2>Open to correction.</h2>
+      <p>
+        Ideas deserve scrutiny, including ours. Substantive changes should carry an updated date
+        and, where appropriate, a correction note. If something needs attention,{' '}
+        <a href="/contact/">get in touch</a>.
+      </p>
+    </div>
+    <Newsletter />
+  </div>
+</Base>

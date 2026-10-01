@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/gonna-dev/truth_to_live_by",
+  "newsletterProvider": "beehiiv",
+  "publicationSlug": "one-truth-to-live-by-newsletter",
+  "privacyNoticeApproved": true,
+  "termsApproved": true,
+  "newsletterVerified": false,
+  "temporaryNewsletterPlaceholderApproved": true,
+  "contactVerified": true,
+  "minimumArticles": 3,
+  "minimumVideos": 3,
+  "completedPreviewApprovedForPublication": true
+}

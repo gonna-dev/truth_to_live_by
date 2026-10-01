@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import VideoPlayer from '../components/VideoPlayer.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { library } from '../lib/content';
+import { brand } from '../config/brand';
+const { articles, pillars, videos } = await library();
+const selectedVideo = videos[0];
+const featured = articles.find((a) => a.data.featured) ?? articles[0];
+const latest = articles.filter((a) => a.id !== featured?.id).slice(0, 3);
+const pillarTitle = (id: string) => pillars.find((p) => p.id === id)?.data.title ?? id;
+---
+
+<Base>
+  <section class="hero wrap">
+    <div class="hero-kicker">
+      <span class="eyebrow">AN INDEPENDENT EXPLORATION OF LIVING WELL</span>
+      <span class="hero-issue">Think clearly. Live deliberately.</span>
+    </div>
+    <h1>
+      {brand.headline[0]}
+      <br />
+      <em>{brand.headline[1]}</em>
+    </h1>
+    <div class="hero-bottom">
+      <p>
+        Philosophy, psychology and everyday life.
+        <br />
+        Useful ideas, explored with care.
+        <br />
+        Something real to take into your day.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="/join/">
+          Join One Truth to Live By <span aria-hidden="true">↗</span>
+        </a>
+        <a class="text-link" href="/ideas/">
+          Explore the ideas <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+    <a class="hero-youtube" href={brand.youtube}>
+      Prefer to watch? Find us on YouTube <span aria-hidden="true">↗</span>
+    </a>
+  </section>
+  {featured && (
+    <section class="wrap section featured-section">
+      <div class="section-heading">
+        <h2 class="eyebrow">THE FEATURED IDEA</h2>
+        <span class="small">A place to begin.</span>
+      </div>
+      <ArticleCard article={featured} pillar={pillarTitle(featured.data.pillar.id)} featured />
+    </section>
+  )}
+  {latest.length > 0 && (
+    <section class="wrap section">
+      <div class="section-heading">
+        <h2>More to think about.</h2>
+        <a class="text-link" href="/ideas/">
+          All ideas <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="article-grid">
+        {latest.map((article) => (
+          <ArticleCard article={article} pillar={pillarTitle(article.data.pillar.id)} />
+        ))}
+      </div>
+    </section>
+  )}
+  {!articles.length && (
+    <section class="wrap section">
+      <div class="section-heading">
+        <h2>Good ideas take care.</h2>
+      </div>
+      <p class="lede">
+        Our first essays are being prepared. Until then, explore Truth to Live By on YouTube.
+      </p>
+      <a class="text-link" href={brand.youtube}>
+        Visit the channel ↗
+      </a>
+    </section>
+  )}
+  <section class="pillar-section">
+    <div class="wrap">
+      <span class="eyebrow">THREE WAYS INTO A MORE CONSIDERED LIFE</span>
+      <div class="pillar-grid">
+        {pillars.map((pillar, i) => (
+          <a class="pillar-card" href={`/ideas/topic/${pillar.id}/`}>
+            <span class="pillar-number">0{i + 1}</span>
+            <h2>
+              {pillar.data.title}
+              <span aria-hidden="true">↗</span>
+            </h2>
+            <p>{pillar.data.description}</p>
+            <span class="small">{pillar.data.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="wrap watch-teaser section">
+    {selectedVideo ? (
+      <VideoPlayer
+        video={selectedVideo}
+        relatedSlug={
+          articles.find((a) => a.id === selectedVideo.data.related_article?.id)?.data.slug
+        }
+      />
+    ) : (
+      <div class="watch-art" aria-hidden="true">
+        <div class="watch-ring"></div>
+        <span class="watch-play">▶</span>
+        <span class="watch-art-label">TRUTH TO LIVE BY / ON SCREEN</span>
+      </div>
+    )}
+    <div>
+      <span class="eyebrow">A DIFFERENT WAY IN</span>
+      <h2>
+        {selectedVideo ? (
+          selectedVideo.data.title
+        ) : (
+          <>
+            Some ideas are
+            <br />
+            <em>better explored together.</em>
+          </>
+        )}
+      </h2>
+      <p>
+        {selectedVideo
+          ? selectedVideo.data.description
+          : 'Watch our explorations of the ideas behind a more thoughtful life. Continue the conversation, one question at a time.'}
+      </p>
+      <a class="text-link" href="/watch/">
+        Explore the watch library <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+  <div class="wrap section">
+    <Newsletter />
+  </div>
+</Base>

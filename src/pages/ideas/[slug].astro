@@ -1,0 +1,205 @@
+---
+import { render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import VideoPlayer from '../../components/VideoPlayer.astro';
+import { library, articleUrl, readingTime, dateLabel } from '../../lib/content';
+import { brand } from '../../config/brand';
+export async function getStaticPaths() {
+  const { articles } = await library();
+  return articles.map((article) => ({ params: { slug: article.data.slug }, props: { article } }));
+}
+const { article } = Astro.props;
+const { Content } = await render(article);
+const { data } = article;
+const { articles, pillars, videos } = await library();
+const pillar = pillars.find((p) => p.id === data.pillar.id)!;
+const explicit = data.related_articles
+  .map((ref) => articles.find((a) => a.id === ref.id))
+  .filter((a): a is typeof article => Boolean(a));
+const related = [
+  ...explicit,
+  ...articles.filter(
+    (a) =>
+      a.id !== article.id &&
+      !explicit.some((e) => e.id === a.id) &&
+      a.data.pillar.id === data.pillar.id,
+  ),
+].slice(0, 2);
+const video = videos.find((v) => v.id === data.related_video?.id);
+const social = await getImage({
+  src: data.seo_image ?? data.hero_image,
+  width: 1200,
+  height: 630,
+  format: 'png',
+  fit: 'cover',
+});
+const canonical = new URL(articleUrl(data.slug), brand.url).href;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: data.title,
+      description: data.description,
+      datePublished: data.publication_date.toISOString(),
+      dateModified: (data.updated_date ?? data.publication_date).toISOString(),
+      author: { '@type': 'Organization', name: data.author, url: `${brand.url}/about/` },
+      publisher: { '@type': 'Organization', name: brand.name, url: brand.url },
+      image: new URL(social.src, brand.url).href,
+      mainEntityOfPage: canonical,
+      articleSection: pillar.data.title,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Ideas', item: `${brand.url}/ideas/` },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: pillar.data.title,
+          item: `${brand.url}/ideas/topic/${pillar.id}/`,
+        },
+        { '@type': 'ListItem', position: 3, name: data.title, item: canonical },
+      ],
+    },
+  ],
+};
+---
+
+<Base
+  title={data.seo_title ?? data.title}
+  description={data.seo_description ?? data.description}
+  image={social.src}
+  imageAlt={data.hero_alt}
+  article
+  schema={schema}
+>
+  <div class="wrap">
+    <header class="article-header">
+      <div class="eyebrow">
+        <a href="/ideas/">IDEAS</a> / <a href={`/ideas/topic/${pillar.id}/`}>{pillar.data.title}</a>
+      </div>
+      <h1>{data.title}</h1>
+      <p class="lede">{data.subtitle ?? data.description}</p>
+      <div class="article-byline">
+        <span>By {data.author}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime={data.publication_date.toISOString()}>
+          {dateLabel(data.publication_date)}
+        </time>
+        <span aria-hidden="true">·</span>
+        <span>{readingTime(article.body)} min read</span>
+        {data.updated_date && <span>Updated {dateLabel(data.updated_date)}</span>}
+      </div>
+      {(data.draft || data.placeholder) && (
+        <aside class="sample-note">
+          <strong>Sample essay for preview.</strong> This editorial draft is awaiting owner review
+          and is excluded from the public build.
+        </aside>
+      )}
+    </header>
+    <figure class="article-hero">
+      <Image
+        src={data.hero_image}
+        alt={data.hero_alt}
+        widths={[480, 800, 1200]}
+        sizes="(max-width: 760px) 100vw, 1180px"
+        width={1200}
+        height={675}
+        format="webp"
+        loading="eager"
+      />
+      <figcaption>Original illustration for Truth to Live By.</figcaption>
+    </figure>
+    <article class="article-body">
+      <Content />
+      {data.takeaway && (
+        <aside class="takeaway">
+          <span class="eyebrow">FROM UNDERSTANDING TO EVERYDAY LIFE</span>
+          <h2>The truth to live by</h2>
+          <p>{data.takeaway}</p>
+        </aside>
+      )}
+      {data.evidence_note && (
+        <aside class="evidence-note">
+          <strong>Evidence &amp; interpretation</strong>
+          <p>{data.evidence_note}</p>
+        </aside>
+      )}
+      {data.sources.length > 0 && (
+        <section class="source-list">
+          <h2>Sources &amp; further reading</h2>
+          <ol>
+            {data.sources.map((source) => (
+              <li>
+                <a href={source.url}>{source.title} ↗</a>
+                {source.author && <span> — {source.author}</span>}
+                <br />
+                <span>
+                  {source.classification}
+                  {source.locator ? ` · ${source.locator}` : ''}
+                </span>
+                {source.note && <p>{source.note}</p>}
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+      {data.correction_note && (
+        <aside class="sample-note">
+          <strong>Correction / update</strong>
+          <p>{data.correction_note}</p>
+        </aside>
+      )}
+      {video && (
+        <aside class="takeaway">
+          <h2>Explore the idea on screen</h2>
+          <VideoPlayer video={video} />
+        </aside>
+      )}
+      <div class="article-actions">
+        <button class="copy-link" data-copy-url={canonical}>
+          Copy article link
+        </button>
+        <span role="status" data-copy-status></span>
+        <a href="/contact/">Suggest a correction</a>
+      </div>
+    </article>
+    {related.length > 0 && (
+      <section class="section">
+        <div class="section-heading">
+          <h2>Keep exploring.</h2>
+          <a class="text-link" href="/ideas/">
+            All ideas ↗
+          </a>
+        </div>
+        <div class="article-grid">
+          {related.map((a) => (
+            <ArticleCard
+              article={a}
+              pillar={pillars.find((p) => p.id === a.data.pillar.id)?.data.title ?? ''}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+    <div class="section">
+      <Newsletter />
+    </div>
+  </div>
+</Base>
+<script>
+  const copy = document.querySelector<HTMLButtonElement>('[data-copy-url]');
+  copy?.addEventListener('click', async () => {
+    const status = document.querySelector<HTMLElement>('[data-copy-status]')!;
+    try {
+      await navigator.clipboard.writeText(copy.dataset.copyUrl!);
+      status.textContent = 'Link copied.';
+    } catch {
+      status.textContent = `Copy this link: ${copy.dataset.copyUrl}`;
+    }
+  });
+</script>

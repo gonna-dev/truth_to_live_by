@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import { brand } from '../config/brand';
+---
+
+<Base
+  title="Publishing system"
+  description="How the owner-operated Truth to Live By publishing system uses Google and YouTube authorization."
+>
+  <div class="wrap">
+    <header class="page-intro">
+      <span class="eyebrow">PUBLISHING WITH CARE</span>
+      <h1>
+        The Truth to Live By
+        <br />
+        <em>publishing system.</em>
+      </h1>
+      <p class="lede">
+        A private, owner-operated tool for preparing and publishing approved Truth to Live By
+        material across the brand’s official channels.
+      </p>
+    </header>
+    <div class="prose-page">
+      <aside class="sample-note">
+        <strong>Prepared for owner and OAuth review.</strong> This page is part of the local website
+        preview and is not yet publicly deployed.
+      </aside>
+
+      <h2>What the application does</h2>
+      <p>
+        The publishing system helps the owner of Truth to Live By upload approved, locally stored
+        videos and their accompanying titles, descriptions and other metadata to the official{' '}
+        <a href={brand.youtube}>Truth to Live By YouTube channel</a>. It also keeps separate
+        publishing records for each configured brand and platform.
+      </p>
+      <p>
+        The application is an internal brand-management tool operated by Mark Walsh, the owner of
+        the Truth to Live By project. It is not offered to the public, does not let visitors sign
+        in, and does not publish videos belonging to other people.
+      </p>
+
+      <h2>How Google and YouTube access is used</h2>
+      <p>
+        Google OAuth authorisation allows the application to confirm that it is connected to the
+        intended YouTube channel, refresh its authorised session and upload a video selected by the
+        owner. The current workflow creates uploaded videos as private. Public, unlisted and
+        scheduled publishing are blocked until a separate approval and compliance process is
+        completed.
+      </p>
+      <p>
+        The application processes the authorised channel’s identifier and title, the video and
+        metadata supplied by the owner, and the video identifier and status returned by YouTube. It
+        does not ask for or receive the owner’s Google password.
+      </p>
+      <p>The application requests these Google OAuth permissions:</p>
+      <ul>
+        <li>
+          <code>youtube.upload</code> — upload the owner-selected videos and their metadata.
+        </li>
+        <li>
+          <code>youtube.readonly</code> — read the authorised channel’s basic identity so the
+          application can refuse to operate against an unexpected channel.
+        </li>
+      </ul>
+      <p>
+        These permissions do not allow the application to read the owner’s Gmail, Google Drive or
+        unrelated Google Account information.
+      </p>
+
+      <h2>Storage and control</h2>
+      <p>
+        Media, OAuth credentials, publishing state and operational logs remain in the owner’s local
+        publishing environment. Credentials and media are excluded from the source repository. The
+        public website does not receive OAuth tokens, operate the publisher or store uploaded video
+        files.
+      </p>
+      <p>
+        Operational publishing logs are retained for 12 months and then deleted. OAuth credentials
+        are retained only while the authorisation remains active and are deleted when replaced,
+        revoked or no longer required.
+      </p>
+
+      <h2>Authorisation and withdrawal</h2>
+      <p>
+        The owner can remove the application’s Google access through the security settings of the
+        authorising Google Account. Removing access prevents future token refresh and YouTube
+        uploads. Approved requests to delete locally stored publishing records are completed within
+        30 days unless the records must be retained to meet a legal obligation.
+      </p>
+
+      <h2>Privacy information</h2>
+      <p>
+        The application uses Google information only to provide the owner-requested channel check
+        and video-upload functions. It does not sell Google user data or use it for advertising. See
+        the <a href="/privacy/">Truth to Live By Privacy Notice</a> for the information processed,
+        its purpose, storage and deletion arrangements, and the contact route for privacy questions.
+      </p>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,481 @@
+Truth to Live By — Website User Requirements Specification
+Document: TTLB-URS-001
+Version: 1.0
+Domain: truthtoliveby.fyi
+Primary brand: Truth to Live By
+Primary channels: YouTube @truthtoliveby, Instagram truthtoliveby.fyi
+Hosting/DNS: Cloudflare
+Source control: GitHub
+Development model: AI/agent maintained, principally through Codex
+Initial commercial model: Audience building; monetisation capability to be added later
+Target launch: Minimum viable but production-quality public website
+1. Purpose
+The website shall establish Truth to Live By as an independent digital brand focused on useful ideas from philosophy, psychology, relationships, health, human performance and contemporary thought.
+The website shall not initially attempt to replace YouTube or Instagram.
+Its principal purposes shall be to:
+Priority	Purpose
+1	Establish a credible permanent home for the Truth to Live By brand
+2	Convert social/video audiences into an owned email audience
+3	Organise and preserve the brand's best ideas and content
+4	Provide supporting articles, references and resources for videos
+5	Improve discoverability through search engines
+6	Support future monetisation without requiring a rebuild
+7	Provide an infrastructure that AI agents can maintain reliably
+
+
+The site should feel like a modern publication/media brand, not an online store or personal blog.
+2. Brand proposition
+The working positioning statement shall be:
+Truth to Live By — useful ideas from philosophy, psychology, relationships and human performance, distilled into practical ways to live better.
+
+The central editorial question shall be:
+What is the truth here that somebody could actually live by?
+
+Content should not merely repeat well-known thinkers.
+The brand should seek to:
+discover → investigate → contextualise → challenge → synthesise → apply
+ideas from sources such as philosophers, researchers, authors, podcasts and public intellectuals.
+The website shall distinguish clearly between:
+what someone claims, what available evidence suggests, and the practical interpretation offered by Truth to Live By.
+3. Intended audience
+The primary audience is adults interested in:
+- improving how they live and think;
+- relationships and human connection;
+- philosophy and meaning;
+- psychology;
+- physical and mental performance;
+- health and longevity;
+- behaviour change;
+- personal development;
+- contemporary thinkers and research;
+- practical rather than purely theoretical insight.
+The initial site shall not target a highly specialised professional audience.
+Language should be intelligent but accessible to a general reader.
+4. Editorial pillars
+The website shall initially organise its content into three major pillars.
+Pillar	Areas
+Self	Stoicism, meaning, resilience, identity, discipline, emotional regulation, attention, purpose
+Relationships	Romantic relationships, friendship, loneliness, communication, intimacy, family, social support
+Living Well	Health, exercise, sleep, longevity, work, productivity, money, performance, habits
+
+
+The architecture shall allow additional pillars or subcategories to be added without structural redevelopment.
+5. Core website architecture
+The initial navigation shall contain approximately:
+Home — Ideas — Watch — About — Join
+A secondary footer may contain:
+Privacy — Terms — Contact — YouTube — Instagram
+The structure shall remain deliberately small.
+6. Homepage requirements
+The homepage shall function as the principal introduction to the brand.
+URS-HOME-001 — Hero
+The page shall immediately communicate:
+Truth to Live By
+and a concise proposition such as:
+Ideas worth understanding.
+Truths worth living.
+
+or the longer positioning statement.
+The final wording shall remain configurable rather than embedded deeply in code.
+URS-HOME-002 — Primary actions
+Above the first major scroll break, users shall be offered appropriate actions such as:
+Explore Ideas
+Watch on YouTube
+Join the newsletter
+Email signup should ultimately be the most important conversion action.
+URS-HOME-003 — Featured idea
+The homepage shall allow one article/video/content package to be designated as the current Featured Idea.
+It shall support:
+title, image/thumbnail, short description, category, read/watch time and CTA.
+URS-HOME-004 — Latest content
+The homepage shall display recent content from the site's internal content library.
+Content shall not require manual homepage redesign when a new article is added.
+URS-HOME-005 — Content pillars
+Self, Relationships and Living Well shall be presented visually, with direct access to each topic.
+URS-HOME-006 — Video promotion
+A section shall promote selected YouTube content.
+Videos may be embedded or represented by thumbnails linking to YouTube, depending on the performance/privacy implementation.
+URS-HOME-007 — Newsletter proposition
+The homepage shall contain a dedicated newsletter section.
+Working proposition:
+One Truth to Live By
+
+Possible supporting copy:
+One useful idea from philosophy, psychology, relationships or human performance — distilled into something you can actually use.
+
+URS-HOME-008 — Social presence
+Links to the official YouTube and Instagram accounts shall be clearly available without dominating the user journey.
+7. Ideas / article library
+URS-IDEA-001
+The site shall contain a central searchable/browsable Ideas library.
+URS-IDEA-002
+Each article shall support structured metadata including:
+title, subtitle, author/brand, publication date, last-updated date, pillar, tags, description, hero image, reading time, related video, sources/references and SEO information.
+URS-IDEA-003
+Users shall be able to filter or navigate content by the main editorial pillars.
+URS-IDEA-004
+Each individual article shall support:
+long-form text, headings, pull quotes, images, embedded video, citations/references, external links, callout boxes and related content.
+URS-IDEA-005
+Articles shall support an optional section such as:
+The Truth to Live By
+
+containing the principal practical takeaway.
+URS-IDEA-006
+Articles shall support evidence/source notes where appropriate.
+This is particularly important for health, science and psychology material.
+URS-IDEA-007
+The article architecture shall allow content to be created by AI agents without requiring modification of application code.
+Preferred implementation:
+Markdown/MDX or equivalent structured content files.
+8. Watch section
+URS-WATCH-001
+The site shall contain a dedicated area presenting Truth to Live By video content.
+URS-WATCH-002
+Content shall be capable of linking to:
+YouTube long-form videos, YouTube Shorts and potentially other video platforms later.
+URS-WATCH-003
+A video entry shall support:
+thumbnail, title, description, topic/category, publication date, YouTube URL and related written article.
+URS-WATCH-004
+The site shall not host large video files directly during the initial phase.
+Primary video hosting shall remain YouTube or another specialist provider.
+This minimises bandwidth and hosting cost.
+9. Newsletter / Join section
+URS-EMAIL-001
+The site shall support an external email newsletter platform through an API, embedded form or secure server-side integration.
+The newsletter provider shall not be tightly coupled to the site architecture.
+URS-EMAIL-002
+The initial subscriber data required shall be minimal.
+Normally:
+email address
+with optional first name later.
+URS-EMAIL-003
+Newsletter signup shall include appropriate consent wording.
+URS-EMAIL-004
+Successful signup shall provide a clear confirmation state.
+URS-EMAIL-005
+Failed signup shall give a useful error without exposing technical information.
+URS-EMAIL-006
+The site architecture shall allow double opt-in if required/configured by the mailing provider.
+URS-EMAIL-007
+Newsletter signup should be reusable in multiple locations, including:
+homepage, article footer and dedicated Join page.
+10. About
+The About page shall explain:
+what Truth to Live By is, what subjects it explores, how it approaches ideas, why sources/evidence matter, and how YouTube/Instagram/website relate to one another.
+It shall not need to centre the site around the personal biography of one individual unless that becomes desirable later.
+11. Contact
+A Contact page or contact facility shall be provided.
+It should initially support enquiries such as:
+editorial correspondence, collaborations, media, corrections and commercial enquiries.
+The public display of a raw personal email address should be avoided where practical.
+Spam prevention shall be implemented without significantly harming usability.
+12. Search
+URS-SEARCH-001
+The site architecture shall be capable of supporting internal search.
+For the earliest release, search may be omitted if the content library is very small.
+Once implemented, search should cover:
+titles, descriptions, categories, tags and article body.
+A third-party paid search platform shall not be introduced unless justified by scale.
+13. Related-content system
+Individual pieces shall be able to reference related:
+articles, videos, categories and resources.
+Where reasonable, these relationships should be generated from structured metadata rather than manually coded page layouts.
+14. Content model
+The site shall use a content model that is easily understandable by AI agents.
+A typical content object should contain fields equivalent to:
+title
+slug
+description
+publication_date
+updated_date
+pillar
+tags
+author
+hero_image
+youtube_url
+featured
+draft
+seo_title
+seo_description
+sources
+body
+The content schema shall be validated during build.
+Invalid or incomplete content should fail safely during development rather than silently damaging production pages.
+15. AI-first maintenance requirement
+This is a key system requirement.
+URS-AI-001
+The site shall be structured so that an AI coding agent can safely make routine changes.
+URS-AI-002
+A repository instruction document shall explain:
+architecture, coding conventions, content format, deployment method, testing requirements, restricted files and how new content is added.
+For Codex, an appropriate agent instruction file shall be included.
+URS-AI-003
+Routine publication of an article shall not require changing application components.
+URS-AI-004
+Reusable functionality shall be componentised.
+Examples:
+navigation, footer, newsletter form, article card, video card, social links and CTA blocks.
+URS-AI-005
+Hard-coded duplication should be minimised.
+URS-AI-006
+Every significant automated code change shall be recoverable using version control.
+16. Recommended technical architecture
+Although the URS is primarily requirements-based, my preferred implementation for this specific project is:
+Component	Preferred implementation
+Front-end framework	Astro
+Interactive elements	Minimal React only where required
+Styling	Modern maintainable CSS or Tailwind, if consistently implemented
+Content	Astro content collections + Markdown/MDX
+Repository	GitHub
+Deployment	Cloudflare
+Domain/DNS	Cloudflare
+SSL	Cloudflare managed
+Video	YouTube embeds/links
+Analytics	Privacy-conscious analytics initially
+Email	External newsletter service
+Database	None initially
+User accounts	None initially
+Payment system	None initially
+CMS	None initially
+Server	No conventional always-on server
+
+
+The fundamental architecture should therefore be:
+Visitor → Cloudflare → static/edge-generated Truth to Live By website
+with:
+Codex → GitHub → automated build/test → Cloudflare deployment
+17. Responsive design
+URS-UX-001
+The website shall be designed mobile first.
+This is particularly important because a substantial proportion of traffic is likely to originate from Instagram and YouTube mobile applications.
+URS-UX-002
+The site shall operate properly on:
+current mobile browsers, tablets, laptops and desktop displays.
+URS-UX-003
+No important content shall require hover interaction.
+URS-UX-004
+Navigation shall remain simple and usable on small screens.
+URS-UX-005
+Touch targets shall be appropriately sized.
+18. Visual requirements
+The desired visual style shall be:
+calm, intelligent, contemporary, premium, thoughtful and uncluttered.
+It should avoid looking like:
+a generic AI site, corporate SaaS website, motivational quote page, aggressive self-help funnel or clickbait news site.
+Strong typography should be central to the design.
+Visual hierarchy should favour:
+idea → statement → explanation → application
+over unnecessary decorative elements.
+Generous whitespace is preferred.
+The design shall support both serious essays and visual/video content.
+19. Brand system
+The initial implementation shall define reusable design tokens for:
+typography, font sizes, spacing, border radii, content widths, colour palette, buttons, cards and breakpoints.
+These shall be centrally controlled rather than scattered throughout the code.
+Changing the brand's accent colour later should require modification in one logical location.
+20. Images
+Images shall be optimised automatically where practical.
+The site shall support:
+responsive image sizing, modern image formats, lazy loading and meaningful alt text.
+Images should not significantly impair page loading.
+AI-generated imagery may later be used, but the site must not depend upon it.
+21. Performance
+The website shall be designed to load rapidly, particularly on mobile connections.
+Target production goals:
+Metric	Requirement
+Lighthouse Performance	≥90 desirable
+Accessibility	≥95 desirable
+Best Practices	≥95 desirable
+SEO	≥95 desirable
+Largest Contentful Paint	target <2.5 s
+Cumulative Layout Shift	target <0.1
+Interaction to Next Paint	target within Google's “good” range
+
+
+Performance budgets shall discourage unnecessary JavaScript.
+YouTube embeds shall be implemented in a manner that minimises their effect on initial loading where practical.
+22. Accessibility
+The site shall target WCAG 2.2 AA principles.
+Requirements include:
+semantic HTML, keyboard accessibility, visible focus state, sufficient colour contrast, alternative text, descriptive links, correctly labelled forms and logical heading structure.
+Accessibility shall be included during implementation rather than retrofitted after launch.
+23. Search engine optimisation
+The website shall include:
+structured page titles, meta descriptions, canonical URLs, Open Graph metadata, social preview metadata, XML sitemap, robots.txt and appropriate semantic heading structures.
+Article pages shall use appropriate structured data where reasonable.
+Future support should exist for:
+Article schema, VideoObject schema, BreadcrumbList and Organisation/brand data.
+URLs should be human-readable, for example:
+truthtoliveby.fyi/ideas/stoicism-and-control
+rather than database identifiers.
+24. Social sharing
+Every article shall support suitable sharing metadata so that links render professionally on:
+Facebook, LinkedIn, messaging applications and other compatible platforms.
+Appropriate images and descriptions shall be configurable for individual content.
+25. Analytics
+Analytics shall initially be deliberately simple.
+The owner shall be able to understand:
+traffic, page views, major referral sources, most popular content and newsletter conversion events.
+The implementation should favour privacy and minimal cookie requirements.
+The architecture shall permit later connection to more sophisticated analytics if commercial needs justify it.
+26. GDPR and privacy
+Because the brand is based in Ireland/EU and may collect newsletter subscribers, GDPR principles shall be incorporated from the outset.
+The site shall include an appropriate Privacy Notice before personal data collection begins.
+Only necessary personal data shall be collected.
+Third-party processors shall be identifiable.
+The site shall not deploy unnecessary advertising or tracking cookies merely because plugins make them available.
+If non-essential cookies are introduced later, consent management shall be implemented as required.
+27. Security
+The site shall use HTTPS exclusively.
+No secrets, API keys, tokens or credentials shall be committed to GitHub.
+Secrets shall use secure Cloudflare/GitHub environment mechanisms.
+Dependencies shall be minimised.
+Forms and server-side endpoints shall validate input.
+External content shall be handled safely.
+Automated dependency/security checking should be enabled where practical.
+Cloudflare Free protection shall be used initially.
+Cloudflare Pro is not a launch requirement.
+28. Reliability
+Static/public content should remain available even if optional third-party systems are unavailable.
+Examples:
+If the newsletter provider fails, the rest of the website should continue operating.
+If YouTube cannot load, the surrounding article should still load.
+A third-party integration shall not become a single point of failure for the entire website.
+29. Deployment
+The project shall have three logical states:
+local/development → preview → production
+Every pull request should, where practical, produce a preview build.
+Production deployment shall be automated following an approved merge to the designated production branch.
+Failed builds shall not replace the last successful production deployment.
+30. Version control
+Git shall be mandatory.
+The repository shall include an appropriate .gitignore.
+The production site shall be reproducible from the repository and documented environment configuration.
+Major implementation stages shall be committed separately rather than as one enormous opaque commit.
+31. Testing
+The build agent shall test at minimum:
+successful production build, broken internal links, major navigation, responsive behaviour, forms, metadata, sitemap and accessibility basics.
+Key functionality should receive automated tests where justified.
+A test failure affecting production-critical functionality should block deployment.
+32. Error handling
+The site shall provide a branded 404 page.
+The user shall be given useful recovery options such as:
+return home, browse Ideas or visit the Watch section.
+Raw framework/server error messages shall never be exposed publicly.
+33. Monetisation readiness
+The site shall not initially require monetisation functionality, but its architecture shall allow later integration of:
+digital downloads, courses, subscriptions, paid newsletters, affiliate links, sponsorships, memberships, physical products and payment services such as Stripe.
+The site shall not be over-engineered now for these hypothetical future requirements.
+Future commerce should be introduced as modular services.
+34. Potential future user accounts
+User login/accounts shall explicitly be out of scope for v1.
+No authentication/database infrastructure shall be added merely because it may be needed later.
+If membership becomes commercially justified, it shall be treated as a separate project.
+35. CMS position
+A traditional CMS such as WordPress shall not be required initially.
+Content shall initially be stored in version-controlled structured files.
+However, the content architecture shall not deliberately prevent migration to a headless CMS later.
+This gives you the benefit of simplicity now without locking yourself into the approach forever.
+36. AI content pipeline readiness
+The repository shall be capable of later accepting content produced through an automated workflow such as:
+research agent → editorial brief → human approval → master content → YouTube → Reels → newsletter → web article → analytics
+The website interface should therefore accept predictable structured content rather than arbitrary hard-coded pages.
+37. Source and evidence support
+Articles shall support proper outbound citations/references.
+Health/scientific content should distinguish between:
+established evidence, emerging evidence, expert interpretation, personal opinion and hypothesis where relevant.
+The design should support reference notes without making every article resemble an academic paper.
+38. Content correction
+There shall be a straightforward mechanism for correcting previously published material.
+Articles shall support an updated date.
+Where a substantive factual correction is necessary, the content format should support an optional correction/update note.
+39. Initial content required before public launch
+The site should not launch looking empty.
+I would target approximately:
+Homepage
+About page
+Join page
+Ideas landing page
+Watch landing page
+Privacy page
+Contact mechanism
+3–5 substantive Ideas/articles
+3+ linked YouTube entries
+This is sufficient to look intentional without requiring months of pre-launch content.
+40. Explicit exclusions from initial build
+To avoid Codex unnecessarily building a startup platform, the following shall be excluded unless separately approved:
+user accounts, comments, forums, internal social network, custom video hosting, custom email infrastructure, custom payment processing, mobile app, bespoke database, WordPress, complex backend administration interface, AI chatbot, recommendation algorithm, ecommerce inventory system and paid advertising infrastructure.
+41. Cost requirement
+The initial website shall be designed so routine hosting cost remains close to zero or very low at modest traffic levels.
+Paid infrastructure shall not be introduced where a reliable free/low-cost solution adequately meets the requirement.
+Cost-generating external services shall require explicit approval before integration.
+42. Ownership and portability
+You shall retain control over:
+domain, source code, GitHub repository, content, analytics account and mailing-list data.
+The project should avoid architecture that makes migration away from one commercial provider unnecessarily difficult.
+43. Acceptance criteria
+The website shall not be regarded as ready for production until:
+1. truthtoliveby.fyi loads correctly over HTTPS.
+2. Mobile and desktop layouts have been tested.
+3. Navigation functions correctly.
+4. All core pages exist.
+5. Articles can be added without modifying application code.
+6. YouTube content can be linked/embedded.
+7. Newsletter integration works or has an approved temporary placeholder.
+8. Privacy information is published before collecting emails.
+9. Social metadata produces appropriate previews.
+10. Sitemap and robots.txt are functioning.
+11. There are no obvious broken links.
+12. Production build completes cleanly.
+13. No secrets exist in the public repository.
+14. Accessibility checks have been performed.
+15. Performance is acceptable on mobile.
+16. A branded 404 exists.
+17. GitHub is the authoritative source repository.
+18. Cloudflare deployment is automated.
+19. A rollback path exists.
+20. Documentation explains how Codex or another developer maintains the site.
+44. Required project documentation
+Codex shall create and maintain:
+README.md — project overview and local operation
+AGENTS.md or appropriate agent instructions — rules for coding agents
+ARCHITECTURE.md — system structure
+CONTENT.md — how to create/edit articles
+DEPLOYMENT.md — Cloudflare/GitHub deployment procedure
+SECURITY.md — secrets, dependencies and security expectations
+CHANGELOG.md — significant changes where useful
+Documentation must reflect the actual implementation rather than generic boilerplate.
+45. Build instruction for Codex
+This is the executive instruction I would place above the URS when giving it to Codex:
+Build the complete production-ready v1 website for Truth to Live By at truthtoliveby.fyi in accordance with the attached URS.
+Treat the URS as the authoritative user requirements.
+Before coding, inspect the requirements and produce:
+1. proposed architecture;
+2. sitemap;
+3. content model;
+4. implementation plan;
+5. assumptions and decisions requiring owner approval.
+Do not add major functionality that is not required by the URS.
+Prefer the simplest architecture that meets the requirements. Use Astro, structured Markdown/MDX content, GitHub and Cloudflare unless there is a strong documented technical reason to recommend otherwise.
+Optimise primarily for mobile performance, accessibility, SEO, maintainability, low operating cost and safe future maintenance by coding agents.
+Build reusable components rather than duplicated pages.
+Avoid unnecessary dependencies, databases, servers, CMS platforms and client-side JavaScript.
+Create representative initial content/placeholders where final editorial content has not yet been supplied, clearly identify those placeholders, and do not fabricate claims or research citations.
+Add automated quality checks and confirm that the production build succeeds.
+Do not connect the production domain, create paid services or publish publicly until the owner approves the completed preview.
+At completion, provide a deployment report containing what was built, tests performed, unresolved items, recurring costs, third-party dependencies, security considerations and exact instructions for future maintenance.
+
+One modification I would make before handing this to Codex
+I wouldn't tell Codex “go build everything and publish it” in a single uncontrolled run.
+I'd use this URS as the specification, but make the first Codex job:
+URS → architecture → visual concept → implementation plan → your approval → build.
+
+Brand: Truth to Live By
+Tagline: Ideas worth understanding. Truths worth living.
+Positioning: useful ideas from philosophy, psychology, relationships and human performance, distilled into practical ways to live better.
+Brand model: hybrid. Truth to Live By is the primary identity; AI-generated presenters can front content; you do not need to be the public face initially; synthetic presenters should not be presented as real experts.
+Visual direction: warm editorial minimalism—cream/off-white backgrounds, charcoal typography, restrained natural accents, strong typography, books/timber/natural light, generous whitespace, AI/editorial imagery rather than generic stock or glossy “tech startup” visuals.
+Newsletter: beehiiv.
+Launch scope: Home, Ideas, Watch, About, Join, Contact, Privacy, newsletter signup, social links, 3–5 substantive articles and 3–5 linked videos/Shorts.

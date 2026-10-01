@@ -1,0 +1,22 @@
+---
+import VideoPlayer from './VideoPlayer.astro';
+import type { CollectionEntry } from 'astro:content';
+import { dateLabel } from '../lib/content';
+interface Props {
+  video: CollectionEntry<'videos'>;
+  relatedSlug?: string;
+}
+const { video, relatedSlug } = Astro.props;
+---
+
+<article class="video-card">
+  <VideoPlayer video={video} relatedSlug={relatedSlug} />
+  <div class="meta">
+    <span>{video.data.format === 'short' ? 'Short' : 'Video'}</span>
+    <time datetime={video.data.publication_date.toISOString()}>
+      {dateLabel(video.data.publication_date)}
+    </time>
+  </div>
+  <h3>{video.data.title}</h3>
+  <p>{video.data.description}</p>
+</article>

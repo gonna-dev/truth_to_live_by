@@ -1,0 +1,62 @@
+---
+import { brand } from '../config/brand';
+const path = Astro.url.pathname;
+---
+
+<a class="skip-link" href="#main">
+  Skip to content
+</a>
+<header class="site-header wrap">
+  <a class="wordmark" href="/" aria-label="Truth to Live By — home">
+    Truth to Live By<span class="wordmark-dot">.</span>
+  </a>
+  <nav aria-label="Main navigation" class="desktop-nav">
+    {brand.nav.map((item) => (
+      <a
+        href={item.href}
+        aria-current={
+          (item.href === '/' ? path === '/' : path.startsWith(item.href)) ? 'page' : undefined
+        }
+      >
+        {item.label}
+      </a>
+    ))}
+  </nav>
+  <a
+    class="button button-small header-join"
+    href="/join/"
+    aria-current={path === '/join/' ? 'page' : undefined}
+  >
+    Join the letter <span aria-hidden="true">↗</span>
+  </a>
+  <details class="mobile-menu">
+    <summary>
+      Menu <span aria-hidden="true">☰</span>
+    </summary>
+    <nav aria-label="Mobile navigation">
+      {brand.nav.map((item) => (
+        <a
+          href={item.href}
+          aria-current={
+            (item.href === '/' ? path === '/' : path.startsWith(item.href)) ? 'page' : undefined
+          }
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </details>
+</header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu?.open) {
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (menu?.open && event.target instanceof Node && !menu.contains(event.target))
+      menu.open = false;
+  });
+</script>
