@@ -1,6 +1,12 @@
 # Deployment report
 
-Updated 1 October 2026. Status: completed preview approved for staged publication; newsletter collection remains disabled pending live verification.
+Updated 1 October 2026. Status: the revised Privacy Notice and completed preview require renewed owner approval; newsletter collection remains disabled pending live verification.
+
+## 1 October — post-merge review follow-up
+
+The automated review of pull request #10 completed after it had been merged and identified two further release-safety issues. Because that pull request changed the Privacy Notice and the visible preview homepage, `privacyNoticeApproved` and `completedPreviewApprovedForPublication` are reset to false until the owner reviews those revisions. The scheduled-video browser test now derives its expectation from the built content manifest, so publishing the third video will remove the preview label without causing an unrelated quality-test failure.
+
+Validation passed with 0 Astro errors, warnings or hints; all 9 unit tests; a 17-page production build and a 21-page preview build with static checks; all 54 preview browser tests; and the scheduled-video check in both desktop and mobile production builds.
 
 ## 1 October — post-merge release safeguards
 
@@ -130,5 +136,3 @@ Rendering and saved settings are verified. With explicit owner authorization, on
 Owner review of the completed preview; the remaining verified public video requirement; remaining end-to-end beehiiv verification; production privacy configuration; search-engine indexability approval; then explicit public publication approval. The three-article minimum is met, and contact-mail delivery and spam placement are verified. Do not lower release checks to bypass the remaining requirements.
 
 Feature branch `codex/website-v1` is pushed. No PR has been opened, Cloudflare Pages project created, domain connected or public preview published. Existing repository history is preserved. Deployment commands and rollback plan are in DEPLOYMENT.md. Maintenance guidance is in CONTENT.md and ARCHITECTURE.md. No new paid services were introduced; account pricing/entitlements must be checked before launch.
-
-
