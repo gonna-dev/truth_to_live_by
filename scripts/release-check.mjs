@@ -26,9 +26,10 @@ if (
   issues.push('Final terms must be reviewed.');
 if (!config.contactVerified || !validEmail(env.PUBLIC_CONTACT_EMAIL))
   issues.push('Configure and verify the brand contact mailbox.');
+const newsletterEnabled = newsletterConfig(env).enabled;
 if (
-  !config.temporaryNewsletterPlaceholderApproved &&
-  (!config.newsletterVerified || !newsletterConfig(env).enabled)
+  (newsletterEnabled && !config.newsletterVerified) ||
+  (!newsletterEnabled && !config.temporaryNewsletterPlaceholderApproved)
 )
   issues.push(
     'Verify beehiiv signup, confirmation, errors and double opt-in, or obtain explicit temporary-placeholder approval.',

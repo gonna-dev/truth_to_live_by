@@ -65,6 +65,10 @@ test('newsletter never pretends to accept email while unconfigured', async ({ pa
   );
   await expect(page.locator('input[type=email], iframe')).toHaveCount(0);
 });
+test('preview labels an unpublished homepage video', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByText('Scheduled preview video', { exact: true })).toBeVisible();
+});
 test('dedicated contact and official social routes are exposed', async ({ page }) => {
   await page.goto('/contact/');
   await expect(page.getByRole('link', { name: 'Email Truth to Live By' })).toHaveAttribute(
@@ -107,6 +111,8 @@ test('privacy and terms match the reviewed services and retention rules', async 
   await expect(page.getByText(/Mark Walsh is the data controller/)).toBeVisible();
   await expect(page.getByRole('heading', { name: 'The website and hosting' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'The newsletter' })).toBeVisible();
+  await expect(page.getByText(/browser may connect to beehiiv/)).toBeVisible();
+  await expect(page.getByText(/before an email address is submitted/)).toBeVisible();
   await expect(page.getByText(/deleted within 24 months/)).toBeVisible();
   await expect(
     page.getByText(/Operational publishing logs are retained for 12 months/),

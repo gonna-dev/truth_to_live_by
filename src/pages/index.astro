@@ -115,6 +115,9 @@ const pillarTitle = (id: string) => pillars.find((p) => p.id === id)?.data.title
       </div>
     )}
     <div>
+      {selectedVideo && (selectedVideo.data.draft || selectedVideo.data.placeholder) && (
+        <span class="draft-label">Scheduled preview video</span>
+      )}
       <span class="eyebrow">A DIFFERENT WAY IN</span>
       <h2>
         {selectedVideo ? (
