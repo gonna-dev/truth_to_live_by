@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 const manifest = JSON.parse(readFileSync('dist/content-manifest.json', 'utf8'));
+const buildStatus = JSON.parse(readFileSync('dist/build-status.json', 'utf8'));
 
 const pages = [
   '/',
@@ -54,16 +55,32 @@ test('search covers article body, handles empty results and clears', async ({ pa
     page.getByRole('heading', { name: 'Why adult friendships need rituals' }),
   ).toBeVisible();
 });
-test('newsletter never pretends to accept email while unconfigured', async ({ page }) => {
+test('newsletter matches the verified production and disabled preview states', async ({ page }) => {
   await page.goto('/join/');
+  if (buildStatus.preview) {
+    await expect(
+      page.getByRole('heading', { name: 'A little perspective, delivered.' }),
+    ).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Visit the newsletter' })).toHaveAttribute(
+      'href',
+      'https://one-truth-to-live-by-newsletter.beehiiv.com/',
+    );
+    await expect(page.locator('input[type=email], iframe')).toHaveCount(0);
+  } else {
+    await expect(page.getByText('Join the newsletter.')).toBeVisible();
+    await expect(page.getByTitle('Subscribe to One Truth to Live By with beehiiv')).toHaveAttribute(
+      'src',
+      'https://subscribe-forms.beehiiv.com/v3/forms/7ac19e35-e25b-4244-ad46-52a60f9c6725',
+    );
+    await expect(page.locator('input[type=email]')).toHaveCount(0);
+  }
+});
+test('confirmation page removes beehiiv token from the visible URL', async ({ page }) => {
+  await page.goto('/join/confirmed/?jwt_token=test-token&source=browser-test');
+  await expect(page).toHaveURL('http://127.0.0.1:4322/join/confirmed/?source=browser-test');
   await expect(
-    page.getByRole('heading', { name: 'A little perspective, delivered.' }),
+    page.getByText(/Your subscription to One Truth to Live By is confirmed/),
   ).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Visit the newsletter' })).toHaveAttribute(
-    'href',
-    'https://one-truth-to-live-by-newsletter.beehiiv.com/',
-  );
-  await expect(page.locator('input[type=email], iframe')).toHaveCount(0);
 });
 test('preview labels an unpublished homepage video', async ({ page }) => {
   await page.goto('/');
