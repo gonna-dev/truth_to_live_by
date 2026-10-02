@@ -12,3 +12,10 @@ artifacts-*.html
 *.log
 .DS_Store
 Thumbs.db
+
+# Local production media. The website publishes structured video records and
+# optimized images; source and export audio/video remain outside Git.
+media/**/*.mp4
+media/**/*.wav
+src/content/videos/*.mp4
+src/content/videos/*.wav

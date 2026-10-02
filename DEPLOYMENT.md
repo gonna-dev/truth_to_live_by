@@ -2,22 +2,18 @@
 
 ## Current state
 
-Local branch: `codex/website-v1`. Remote: https://github.com/gonna-dev/truth_to_live_by. The completed preview and a staged publication sequence with newsletter collection temporarily disabled were approved on 1 October 2026. Three articles and three verified public videos now satisfy the content minimums. The production release check passes when the approved production environment values are supplied. No Cloudflare project, DNS change or public preview has been created. See DEPLOYMENT-REPORT.md for the current evidence.
+Remote `main` at https://github.com/gonna-dev/truth_to_live_by is authoritative. The Git-connected Cloudflare Pages project `truth-to-live-by-site` builds production from `main` with `npm run build:cloudflare`, publishes `dist/`, and serves https://truthtoliveby.fyi/. The apex domain and HTTPS are active. Three approved articles and three verified public videos satisfy the configured content minimums. The beehiiv double-opt-in flow and redirect to `/join/confirmed/` are verified. See DEPLOYMENT-REPORT.md for the latest evidence and the current production collection state.
 
 Local preview: `npm run dev -- --port 4321`. Production-shaped preview for testing: `npm run build:preview` followed by `node scripts/serve-dist.mjs`, served only on 127.0.0.1:4322. Noindex is not access control.
 
-## Complete launch inputs
+## Verified launch inputs
 
-- Review and approve at least three substantive articles; remove draft/placeholder flags only after approval.
-- Add at least three verified YouTube entries with actual dates and thumbnails.
-- Update beehiiv publication branding. Its current verified homepage is https://one-truth-to-live-by-newsletter.beehiiv.com/ and the displayed name is “truthtoliveby.fyi.”
-- The beehiiv v3 form is configured and its standalone URL is recorded in `.env.example`. Double opt-in is enabled in the saved form. Verify iframe compatibility, consent, success, duplicate handling, failure/retry and actual confirmation-email delivery before enabling collection. Empty-email validation has been checked; a loaded form is not proof of subscription success. See DEPLOYMENT-REPORT.md.
-- Confirm delivery in both directions and spam filtering for `truthtoliveby.fyi@gmail.com`. Verified on 30 September 2026: the inbound test reached the contact Inbox, and the reply reached the sender Inbox.
-- Confirm that https://www.tiktok.com/@truthtoliveby resolves to the intended public profile before launch. Owner confirmation was recorded on 25 September 2026.
-- The owner-supplied Facebook address `https://www.facebook.com/profile.php?id=61594741382572` resolves to the intended “Truthtoliveby.fyi” page; this was checked logged out on 25 September 2026.
-- Review and approve `/publishing/` plus the OAuth sections of `/privacy/` and `/terms/`. The confirmed scopes are `youtube.upload` and `youtube.readonly`; confirm controller particulars, retention position and deletion procedure before submitting the URLs to Google.
-- Replace privacy/terms drafts with accurate approved text. Include actual controller, processors, purposes/legal bases, retention, rights/contact and transfer safeguards as applicable.
-- Review screenshots and quality results; record completed-preview approval.
+- Three substantive articles and three verified YouTube entries are approved and public.
+- The beehiiv v3 form URL is recorded in `.env.example`; publication-level double opt-in, confirmation-email delivery and the website confirmation redirect have been tested successfully.
+- Delivery in both directions for `truthtoliveby.fyi@gmail.com` was verified on 30 September 2026.
+- YouTube, Instagram, TikTok and Facebook identities are recorded in central brand configuration.
+- `/publishing/`, `/privacy/` and `/terms/` are approved. The publishing disclosure records the `youtube.upload` and `youtube.readonly` scopes.
+- The completed preview, release configuration, production build and live domain have been reviewed. Exact evidence is retained in DEPLOYMENT-REPORT.md.
 
 ## Secure configuration
 
@@ -35,15 +31,14 @@ RELEASE_APPROVED=true
 
 Set approval flags only after their corresponding review. Update `config/release.json` to reflect actual verification, including `completedPreviewApprovedForPublication`. If the owner explicitly approves temporarily launching without signup, record `temporaryNewsletterPlaceholderApproved`; all other release requirements still apply. Do not reduce content minimums to silence failures.
 
-## After completed-preview approval
+## Deployment workflow
 
-1. Review staged changes and local commit history, then push the feature branch to the supplied repository. Open a draft PR targeting main. Configure required `Website quality / quality` status checks where the repository supports them. Review before merge.
-2. In the owner's Cloudflare dashboard, create a Pages project using the existing GitHub repository, production branch `main`, Node 24, output directory `dist` and **build command `npm run build:cloudflare`**. The branch-aware wrapper runs `build:release` for main. Cloudflare automatically installs dependencies; verify it uses the lockfile. No Astro server adapter is needed for static output.
-3. Add the approved environment configuration above. Run the full browser checks locally/CI before approving the merge. The build command repeats types/unit/static-output checks and release-readiness checks, so Cloudflare cannot deploy a build that bypasses those failures.
-4. For automatic PR previews after authorization, restrict access through Cloudflare Access if unpublished material is present. Set `PREVIEW_DEPLOYMENT_APPROVED=true` only in the preview environment after that approval. The same build wrapper uses Cloudflare's `CF_PAGES_BRANCH`: non-main branches run public validation followed by a draft-enabled preview build and generated-site checks. Without preview approval the wrapper fails. Preview output remains noindex and does not collect subscriber data. Do not set a guessed branch value or replace the production release gate.
-5. Approve and merge the PR. Confirm the Cloudflare deployment succeeds and check its deployment URL. Connect `truthtoliveby.fyi` through Pages custom domains and the owner's Cloudflare DNS. Verify HTTPS, certificate status, canonical URLs and redirects. Configure www only if the owner wants it and redirect it to the canonical apex.
-6. Run live navigation, sitemap/robots, HTTP 404, security headers, social-preview and signup checks. Send a test subscription only to an owner-authorized test address. Record delivery/double-opt-in evidence without storing personal data in Git.
-7. Verify `truthtoliveby.fyi` in Google Search Console, add the domain and exact `/publishing/` and `/privacy/` URLs to OAuth Branding, then move the external OAuth audience to production only after the public pages match the reviewed application. Re-authorise the channel-owning Google account for offline access and store the replacement refresh token only in the social publisher’s ignored environment. Test another private upload before changing any publishing safety gate.
+1. Create a feature branch from current `origin/main`; do not work directly on `main` or rewrite its history.
+2. Run the checks appropriate to the change. For release-affecting work, run the production and preview builds plus the browser suite with approved environment values.
+3. Push the branch and open a PR targeting `main`. Merge only after `Website quality / quality` succeeds and the visible change has been reviewed.
+4. Confirm the Git-connected Cloudflare production deployment matches the merge commit. Failed builds should leave the last successful deployment serving.
+5. For changes affecting routing, integrations or collection, repeat live navigation, sitemap/robots, HTTP 404, security-header and provider-flow checks. Never store subscriber addresses or confirmation credentials in Git.
+6. Keep Cloudflare environment settings aligned with the approved state. Preview output remains noindex and must not collect subscriber data.
 
 Cloudflare's documented Astro Pages integration and PR previews are described at https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/ and https://developers.cloudflare.com/pages/get-started/git-integration/. Dashboard settings and account entitlements must be verified during configuration.
 
