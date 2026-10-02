@@ -6,7 +6,7 @@ Read USER-REQUIREMENTS.txt, IMPLEMENTATION-PLAN.md and the current DEPLOYMENT-RE
 
 The source repository is https://github.com/gonna-dev/truth_to_live_by. Work on a feature branch. Keep meaningful changes in separate commits and preserve existing history. Never force-push or rewrite main.
 
-The completed preview has not been approved for publication. Do not publish a public preview, deploy, connect the domain, introduce paid services or enable personal-data collection without the applicable owner approval. Existing session authorization takes precedence; do not ask again for an already approved action.
+The reviewed website is live on the Git-connected Cloudflare Pages project at `truthtoliveby.fyi`. Check DEPLOYMENT-REPORT.md for the current newsletter-collection state and latest verification evidence. Do not change the public domain, introduce paid services or change personal-data collection without the applicable owner approval. Existing session authorization takes precedence; do not ask again for an already approved action.
 
 ## Architecture and conventions
 
