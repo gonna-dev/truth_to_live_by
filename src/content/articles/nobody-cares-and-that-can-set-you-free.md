@@ -9,7 +9,7 @@ pillar: self
 tags: [spotlight effect, self-consciousness, social anxiety, perspective]
 hero_image: ../../assets/attention.svg
 hero_alt: An original illustration of an open book, a cup and an olive branch beside a sunlit window.
-featured: true
+featured: false
 draft: false
 placeholder: false
 takeaway: Most ordinary imperfections are not receiving the sustained attention they receive inside your own mind. Let small embarrassment pass; repair real impact; seek support when fear repeatedly constricts your life.
