@@ -1,12 +1,49 @@
 ---
-
-title: Why “Can we talk?” feels like a threat slug: why-can-we-talk-feels-like-a-threat subtitle: When a message gives you little context, it’s easy to start preparing for bad news. description: Explore why an ambiguous request for conversation can provoke anticipatory anxiety, and learn how to separate what is known from the story uncertainty creates. author: Truth to Live By publication\_date: 2026-11-19 pillar: relationships tags: \[uncertainty, communication, rejection sensitivity, anxiety\] hero\_image: ../../assets/connection.svg hero\_alt: An original illustration of an empty bench beneath a tree, overlooking a quiet green landscape. featured: false draft: true placeholder: true takeaway: Separate what the message says from what you’re predicting, then ask for one detail if it’s safe to do so. evidence\_note: Research on uncertain threat, rejection sensitivity and interpretation bias helps explain why ambiguous social information can attract negative predictions. No cited study establishes that the phrase “Can we talk?” is a unique trigger, and one worried reaction does not identify a psychological trait or disorder. The practical framework is an editorial application, not treatment. related\_articles: \[nobody-cares-and-that-can-set-you-free, the-space-between-listening-and-replying, not-every-question-needs-an-answer-today\] sources:
-
-- title: "Uncertainty and anticipation in anxiety: an integrated neurobiological and psychological perspective" url: [https\://pubmed.ncbi.nlm.nih.gov/23783199/](https://pubmed.ncbi.nlm.nih.gov/23783199/) classification: established evidence author: Dan W. Grupe and Jack B. Nitschke publisher: Nature Reviews Neuroscience publication\_date: 2013-07-01 note: A review of anticipation under uncertain threat; it does not study this specific message.  
-- title: Implications of rejection sensitivity for intimate relationships url: [https\://pubmed.ncbi.nlm.nih.gov/8667172/](https://pubmed.ncbi.nlm.nih.gov/8667172/) classification: emerging evidence author: Geraldine Downey and Scott I. Feldman publisher: Journal of Personality and Social Psychology publication\_date: 1996-06-01 note: Four studies included experimental evidence concerning interpretations of ambiguous interpersonal behaviour.  
-- title: Rejection sensitivity and disruption of attention by social threat cues url: [https\://pmc.ncbi.nlm.nih.gov/articles/PMC2771869/](https://pmc.ncbi.nlm.nih.gov/articles/PMC2771869/) classification: emerging evidence author: Kathy R. Berenson and colleagues publisher: Journal of Research in Personality publication\_date: 2009-12-01 note: Two studies linked rejection sensitivity with attentional disruption and avoidance in response to rejection cues.  
-- title: "Interpretation bias in social anxiety: A systematic review and meta-analysis" url: [https\://pubmed.ncbi.nlm.nih.gov/32777650/](https://pubmed.ncbi.nlm.nih.gov/32777650/) classification: established evidence author: Junwen Chen, Michelle Short and Eva Kemps publisher: Journal of Affective Disorders publication\_date: 2020-11-01 note: Synthesises evidence on negative interpretations of ambiguous and mildly negative social events in relation to social anxiety.
-
+title: "Why “Can we talk?” feels like a threat"
+slug: why-can-we-talk-feels-like-a-threat
+subtitle: "When a message gives you little context, it’s easy to start preparing for bad news."
+description: "Explore why an ambiguous request for conversation can provoke anticipatory anxiety, and learn how to separate what is known from the story uncertainty creates."
+author: "Truth to Live By"
+publication_date: 2026-12-14T13:00:00Z
+pillar: relationships
+tags: [uncertainty, communication, rejection sensitivity, anxiety]
+hero_image: ../../assets/connection.svg
+hero_alt: "An original illustration of an empty bench beneath a tree, overlooking a quiet green landscape."
+featured: true
+draft: false
+placeholder: false
+takeaway: "Separate what the message says from what you’re predicting, then ask for one detail if it’s safe to do so."
+evidence_note: "Research on uncertain threat, rejection sensitivity and interpretation bias helps explain why ambiguous social information can attract negative predictions. No cited study establishes that the phrase “Can we talk?” is a unique trigger, and one worried reaction does not identify a psychological trait or disorder. The practical framework is an editorial application, not treatment."
+related_articles: [nobody-cares-and-that-can-set-you-free, the-space-between-listening-and-replying, not-every-question-needs-an-answer-today]
+sources:
+  - title: "Uncertainty and anticipation in anxiety: an integrated neurobiological and psychological perspective"
+    url: https://pubmed.ncbi.nlm.nih.gov/23783199/
+    classification: established evidence
+    author: "Dan W. Grupe and Jack B. Nitschke"
+    publisher: "Nature Reviews Neuroscience"
+    publication_date: 2013-07-01
+    note: "A review of anticipation under uncertain threat; it does not study this specific message."
+  - title: "Implications of rejection sensitivity for intimate relationships"
+    url: https://pubmed.ncbi.nlm.nih.gov/8667172/
+    classification: emerging evidence
+    author: "Geraldine Downey and Scott I. Feldman"
+    publisher: "Journal of Personality and Social Psychology"
+    publication_date: 1996-06-01
+    note: "Four studies included experimental evidence concerning interpretations of ambiguous interpersonal behaviour."
+  - title: "Rejection sensitivity and disruption of attention by social threat cues"
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2771869/
+    classification: emerging evidence
+    author: "Kathy R. Berenson and colleagues"
+    publisher: "Journal of Research in Personality"
+    publication_date: 2009-12-01
+    note: "Two studies linked rejection sensitivity with attentional disruption and avoidance in response to rejection cues."
+  - title: "Interpretation bias in social anxiety: A systematic review and meta-analysis"
+    url: https://pubmed.ncbi.nlm.nih.gov/32777650/
+    classification: established evidence
+    author: "Junwen Chen, Michelle Short and Eva Kemps"
+    publisher: "Journal of Affective Disorders"
+    publication_date: 2020-11-01
+    note: "Synthesises evidence on negative interpretations of ambiguous and mildly negative social events in relation to social anxiety."
 ---
 
 Your phone lights up.
